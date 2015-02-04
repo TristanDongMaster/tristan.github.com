@@ -1,10 +1,10 @@
 ---
 layout: page
-title: 万齐帅
-tagline: 博客首页
+title: 首页
+tagline: 万齐帅博客
 ---
 {% include JB/setup %}
 
 #欢迎你
 
-
+	console.log('hello world')
