@@ -3,7 +3,7 @@ layout: post
 title: "Windows 安装  jetyll"
 description: ""
 category: tools
-tags: [jetyll 安装]
+tags: [jetyll setup]
 ---
 {% include JB/setup %}
 
