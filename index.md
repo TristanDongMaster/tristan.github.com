@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 首页
-tagline: 万齐帅博客
+tagline: 杜若博客
 ---
 {% include JB/setup %}
 

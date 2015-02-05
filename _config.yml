@@ -8,7 +8,7 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : 万齐帅
+title : 杜若 ##《九歌·湘君》：“采芳洲兮杜若”。杜若：香草名，又名山姜，古人谓服之“令人不忘”。上下文中还有“杜衡”，亦香草名。 
 tagline: http://wikieswan.github.io/
 author :
   name : wikieswan
