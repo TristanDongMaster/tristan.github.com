@@ -3,7 +3,7 @@ layout: post
 title: "javascript prototype"
 description: ""
 category: 
-tags: [javascript prototype]
+tags: [javascript basic]
 ---
 {% include JB/setup %}
 
@@ -133,7 +133,7 @@ tags: [javascript prototype]
 
 
 ## ____proto____ 链接
-____proto____ ： 对象中存在一个纸箱相关原型的链接，这个链接在ff中被叫做 ____proto____ 。
+____proto____ ： 对象中存在一个指向相关原型的链接，这个链接在ff中被叫做 ____proto____ 。
 
 看个例子：
 
