@@ -53,15 +53,16 @@ tags: [javascript basic]
 我们利用 Person 构造器函数创建一个对象 jack ，就可以访问到原型中的方法了。
 
 	var jack = new Person('jack');
-	jack.getName();//原型属性
+	jack.getName();//自身方法
 	>my name isjack 
-
-	jack.color//原型方法
-	>"white"
-
+	
 	jack.name//自身属性
 	"jack"
-	jack.say('hello')//自身方法
+
+	jack.color//原型属性
+	>"white"
+	
+	jack.say('hello')//原型方法
 	>i say : hello 
 
 ##自身属性与原型属性
