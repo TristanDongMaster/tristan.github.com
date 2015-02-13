@@ -2,8 +2,8 @@
 layout: post
 title: "node http.get 接受数据的方式"
 description: ""
-category: 
-tags: []
+category: node
+tags: [node]
 ---
 {% include JB/setup %}
 
@@ -42,4 +42,3 @@ tags: []
 
 如果是在 'data' 事件上绑定对数据的处理的话，如果数据过大，可能在没有接受完整的数据前就开始执行回调函数了，这样就得到错误的结果了。
 
- 
