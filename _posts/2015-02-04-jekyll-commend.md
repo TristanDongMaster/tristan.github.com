@@ -2,7 +2,7 @@
 layout: post
 title: "jekyll 常用命令"
 description: ""
-category: jekyll
+category: tools
 tags: [jekyll]
 ---
 {% include JB/setup %}

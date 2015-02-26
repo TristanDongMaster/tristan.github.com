@@ -2,18 +2,22 @@
 layout: post
 title: "收藏夹"
 description: ""
-category: 
+category: tools
 tags: [collection]
 ---
 {% include JB/setup %}
 
 #常用工具收藏
 
+##1 CDN
+
 开放静态文件 CDN新增一个库 
 
 	http://www.staticfile.org/
 
-#当修改了node代码或者node服务器挂了，可以自动重启node服务器的神器，  supervisor 
+##2 supervisor 
+
+当修改了node代码或者node服务器挂了，可以自动重启node服务器的神器
 
 安装
 

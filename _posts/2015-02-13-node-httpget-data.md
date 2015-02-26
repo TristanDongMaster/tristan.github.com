@@ -2,7 +2,7 @@
 layout: post
 title: "node http.get 接受数据的方式"
 description: ""
-category: node
+category: javascript
 tags: [node]
 ---
 {% include JB/setup %}

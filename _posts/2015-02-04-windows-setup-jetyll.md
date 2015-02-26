@@ -2,7 +2,7 @@
 layout: post
 title: "Windows 安装  jekyll"
 description: ""
-category: jekyll
+category: tools
 tags: [jekyll]
 ---
 {% include JB/setup %}

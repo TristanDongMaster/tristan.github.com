@@ -2,7 +2,7 @@
 layout: post
 title: "node中设置环境是生产或者开发或者测试 node environment setting"
 description: ""
-category: node
+category: javascript
 tags: [node]
 ---
 {% include JB/setup %}

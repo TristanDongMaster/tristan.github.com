@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "javascript prototype"
+title: "javascript 原型"
 description: ""
 category: javascript
 tags: [javascript]
