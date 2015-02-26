@@ -2,8 +2,8 @@
 layout: post
 title: "ajax 页面恢复上次离开的是的历史记录"
 description: ""
-category:
-tags: [javascript , ajax history]
+category: javascript
+tags: [javascript]
 ---
 {% include JB/setup %}
 

@@ -2,8 +2,8 @@
 layout: post
 title: "Jekyll Bootstrap 如何去除页面上Disqus评论框架的Discovery box部分"
 description: "Jekyll Bootstrap"
-category: 
-tags: [Jekyll Bootstrap]
+category: jekyll
+tags: [jekyll]
 ---
 {% include JB/setup %}
 

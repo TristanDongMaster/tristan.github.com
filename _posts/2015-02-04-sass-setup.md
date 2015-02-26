@@ -2,8 +2,8 @@
 layout: post
 title: "sass 安装"
 description: ""
-category: sass scss
-tags: [tools]
+category: sass
+tags: [sass]
 ---
 {% include JB/setup %}
 

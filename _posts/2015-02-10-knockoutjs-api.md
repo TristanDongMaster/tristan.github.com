@@ -2,8 +2,8 @@
 layout: post
 title: "knockoutjs api"
 description: ""
-category: 
-tags: []
+category: knockoutjs 
+tags: [knockoutjs]
 ---
 {% include JB/setup %}
 

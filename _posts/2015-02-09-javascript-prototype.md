@@ -2,8 +2,8 @@
 layout: post
 title: "javascript prototype"
 description: ""
-category: 
-tags: [javascript basic]
+category: javascript
+tags: [javascript]
 ---
 {% include JB/setup %}
 

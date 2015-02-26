@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Windows 安装  jetyll"
+title: "Windows 安装  jekyll"
 description: ""
-category: tools
-tags: [jetyll setup]
+category: jekyll
+tags: [jekyll]
 ---
 {% include JB/setup %}
 
