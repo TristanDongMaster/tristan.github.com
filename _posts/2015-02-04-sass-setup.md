@@ -2,7 +2,7 @@
 layout: post
 title: "sass 安装"
 description: ""
-category: tools
+category: css
 tags: [sass]
 ---
 {% include JB/setup %}

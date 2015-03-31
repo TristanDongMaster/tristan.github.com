@@ -2,7 +2,7 @@
 layout: post
 title: "IE8会下载ajax返回的json"
 description: ""
-category: 
+category: javascript
 tags: [javascript]
 ---
 {% include JB/setup %}
