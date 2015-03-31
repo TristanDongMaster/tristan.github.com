@@ -26,7 +26,7 @@ SAP框架当然首选Angular，功能强大，书写简单。但是有的时候�
 
 项目目录
 
-<img src="http://wikieswan.qiniudn.com/spa.jpg" style="border:1px solid #ccc">
+<img src="http://wikieswan.qiniudn.com/spa.jpg" style="width:100%;border:1px solid #ccc">
 
 框架设计
 
