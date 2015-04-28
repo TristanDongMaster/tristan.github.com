@@ -33,7 +33,7 @@ ES6新增了let命令，用来声明变量。它的用法类似于var，但是�
 
 ## 部署环境
 
-node从0.11+支持ES6更多的新特征，如果你的node版本低的话，那就去升级吧。window下如何升级，[点击传送门]()
+node从0.11+支持ES6更多的新特征，如果你的node版本低的话，那就去升级吧。window下如何升级，[点击传送门](http://wikieswan.github.io/node/2015/04/28/reinstall-node-on-window-os/)
 
 下面是干货了，亲们注意了：
 
