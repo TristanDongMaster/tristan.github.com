@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "cross origin methods"
+title: "浏览器跨域问题总结"
 description: ""
 category: 
 tags: []
