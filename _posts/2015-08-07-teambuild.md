@@ -11,7 +11,7 @@ tags: []
 
 ### 团建概览
 
-<img src="http://7qn9j4.com1.z0.glb.clouddn.com/tbimg13.jpg" style="width:100%;border:1px solid #ccc;">
+<img src="http://7qn9j4.com1.z0.glb.clouddn.com/tbIMG_6821.JPG" style="width:100%;border:1px solid #ccc;">
 
 给位看官，注意画面中的表情哈！
 
@@ -52,9 +52,7 @@ tags: []
 
 <img src="http://7qn9j4.com1.z0.glb.clouddn.com/tbimg5.jpg" style="width:100%;border:1px solid #ccc;">
 
-<img src="http://7qn9j4.com1.z0.glb.clouddn.com/tbimg6.jpg" style="width:100%;border:1px solid #ccc;">
 
-@石娟，你看到了什么了！！！
 
 #### 2 第二景点 ---- 象山海滨
 
