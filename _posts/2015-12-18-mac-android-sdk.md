@@ -30,8 +30,12 @@ mac 安装 android sdk
 
 添加
 
-	export ANDROID_SDK_HOME=/Users/wan-mac/Library/Android/sdk
-	export PATH=${PATH}:${ANDROID_SDK_HOME}/platform-tools 
+	export ANDROID_HOME=/Users/wan-mac/Library/Android/sdk
+	export PATH=$ANDROID_HOME/tools:$PATH
+	export PATH=$ANDROID_HOME/platform-tools:$PATH
+
+
+其中	ANDROID_HOME 是你机器上android本地安装路径，我的是 /Users/wan-mac/Library/Android/sdk
 
 2 刷新修改
 
@@ -41,4 +45,3 @@ mac 安装 android sdk
 
 	adb devices
 
-	
