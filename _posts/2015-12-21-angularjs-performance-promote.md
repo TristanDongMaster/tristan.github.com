@@ -37,7 +37,7 @@ angularjs 性能优化
 尽快的执行$digest
 
 
-## 优化$watch 
+## 优化$watch  
 
 $scope.$watch(watchExpression, modelChangeCallback), watchExpression可以是String或Function。
 避免watchExpression中执行耗时操作，因为它在每次$digest都会执行1~2次。
