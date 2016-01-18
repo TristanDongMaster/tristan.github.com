@@ -258,7 +258,18 @@ modal弹窗，以右侧向左侧方向进入，关闭时反向。
 
 + 在DOM中利用标签属性控制
 
+	data-modal="#someFullpageModal" data-action="show"
+
+data-modal属性指向弹窗的#id
+
+data-action表示对modal的操纵类型，有show或者hide
+
 + 在js代码中控制
+
+	$('#someFullpageModal').modal('show');
+
+$().modal()函数接受一个参数，表示打开或者关闭modal，'show'、'hide'。
+
 
 代码如下：
 
@@ -303,6 +314,14 @@ modal弹窗，以右侧向左侧方向进入，关闭时反向。
 			</div>
 		</div>
 	</div>
+
+	<script>
+		$(function(){
+			$('#openModal').on('tap',function(){
+				$('#someFullpageModal').modal('show');
+			});
+		});
+	</script>
 
 
 
