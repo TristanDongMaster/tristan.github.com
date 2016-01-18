@@ -180,6 +180,8 @@ checkbox 对外提供3个js接口：
 
 + 2列结构
 
+
+
 	<div class="ipt-controll">
 		<div class="ipt-holder">
 			<div class="ipt-2-left">
@@ -196,6 +198,8 @@ checkbox 对外提供3个js接口：
 
 
 + 3列结构
+
+
 
 	<div class="ipt-controll">
 		<div class="ipt-holder">
