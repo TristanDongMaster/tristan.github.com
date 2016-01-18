@@ -8,7 +8,7 @@
 }
 .demo-col-1{
 	height: 3rem;
-	background: #ccc;
+	background: #eee;
 	color: #222;
 	text-align: center;
 	line-height: 3rem;
@@ -33,4 +33,19 @@
 .noscroll{
     position:fixed;
     overflow:hidden;
+}
+
+.demo-font-col{
+	padding: 1rem 0;
+	background: #eee;
+	height: 4rem;
+	font-size: 2.0rem;
+	text-align: center;
+}
+.demo-font-col-1{
+	padding: 1rem 0;
+	background: #ddd;
+	height: 4rem;
+	font-size: 1.4rem;
+	text-align: center;
 }
