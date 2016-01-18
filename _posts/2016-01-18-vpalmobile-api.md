@@ -34,9 +34,8 @@ vpalmobileui 是以H5收银台为基础开发的一套微型H5前端UI组件库�
 
 	<div class="container">
 		<div class="row">
-			<div class="col">
-				
-			</div></div>
+			<div class="col"></div>
+		</div>
 	</div>
 
 
@@ -140,13 +139,15 @@ banner 的作用是用来展示必要的通知信息。
 .btn 的宽度是父级宽度的100%；所以可以通过控制父级的宽度来设置btn的宽度。
 
 
-ps：以下是vpalmobileui JavaScript组件，需要引入vpal.ui.js 文件，它依赖zepto.js\zepto.fx.js、zepto.touch.js;
+ps：以下是vpalmobileui JavaScript组件，需要引入vpal.ui.js 文件，它依赖zepto.js、zepto.fx.js、zepto.touch.js;
 
 ### checkbox 
 
-checkbox 有3种状态，分别是默认、选中、不可用；对应的样式分别是：.checkkbox-default .checkkbox-selected .checkkbox-disabled
+checkbox 有3种状态，分别是默认、选中、不可用；对应的样式分别是：
 
-在 .checkbox 加上 ```role="checkbox"``` 属性，可以自动响应用户touch；
+```.checkkbox-default``` ```.checkkbox-selected``` ```.checkkbox-disabled```
+
+在 ```.checkbox``` 加上 ```role="checkbox"``` 属性，可以自动响应用户touch；
 
 	<div class="row row-padding">
 		<div class="col">
@@ -161,32 +162,147 @@ checkbox 对外提供3个js接口：
 
 + $.checkbox.get(selector)
 
-获取某个.checkbox的值，返回true或者false
+获取某个```.checkbox```的值，返回true或者false
 
 + $.checkbox.set(selector,value)
 
-设置某个.checkbox的值，value是true或者false
+设置某个```.checkbox```的值，value是true或者false
 
 + $.checkbox.toggle(selector)
 
-切换某个.checkbox
+切换某个```.checkbox```
 
 
+### input 文本输入
+
+文本输入，典型的分为3列和2列两种类型
 
 
++ 2列结构
+
+	<div class="ipt-controll">
+		<div class="ipt-holder">
+			<div class="ipt-2-left">
+				<span>银行卡号</span>
+			</div>
+			<div class="ipt-2-right">
+				<input class="v-ipt" type="tel" id="cardNo" data-validate="0"
+					placeholder="请输入您本人信用卡或储蓄卡卡号" />
+				<i class="icon-delet del hide"></i>		
+			</div>
+		</div>
+	</div>
+		
 
 
++ 3列结构
+
+	<div class="ipt-controll">
+		<div class="ipt-holder">
+			<div class="ipt-2-left">
+				<span>支付密码</span>
+			</div>
+			<div class="ipt-2-right">
+				<input class="v-ipt" type="password" id="payPass"
+				placeholder="请输入支付密码" />
+				<i class="icon-delet del hide"></i>	
+			</div>
+		</div>
+	</div>
+	
+
+其中注意 input 标签有个兄弟节点 i ，这是一个删除用户输入的按钮，可以清除用户输入 
+
+	<input class="v-ipt" type="password" id="payPass" placeholder="请输入支付密码" />
+	<i class="icon-delet del hide"></i>	
+
+### tabs页
+
+tabs组件由tabs和tab-content组成，具体写法如下：
+
+	<div class="tabs">
+		<div data-tab="left"  class="tab tab-left active">信用卡</div>
+		<div data-tab="right" class="tab tab-right">储蓄卡</div>
+	</div>
+	<div class="tab-content">
+		<div data-pannel="left">
+			<div class="row row-padding">
+				tab 1 内容
+			</div>
+		</div>
+		<div data-pannel="right" class="hide">
+			<div class="row row-padding">
+				tab 2 内容
+			</div>
+		</div>
+	</div>
+
+### list
+
+	<div class="list">
+		<div class="item">路人甲 1</div>
+		<div class="item active">路人甲 2</div>
+		<div class="item">路人甲 3</div>
+		<div class="item">路人甲 4</div>
+		<div class="item">路人甲 5</div>
+		<div class="item">路人甲 5</div>
+		<div class="item">路人甲 6</div>
+		<div class="item">路人甲 7</div>
+	</div>
 
 
+### modal
+
+modal弹窗，以右侧向左侧方向进入，关闭时反向。
+弹窗有两种方式控制，分别
+
++ 在DOM中利用标签属性控制
+
++ 在js代码中控制
+
+代码如下：
 
 
+	<button class="btn btn-red" id="openModal" role="button" >js控制</button>
 
+	<button class="btn btn-red" role="button"  data-modal="#someFullpageModal" data-action="show">dom属性控制</button>
 
-
-
-
-
-
+	<div class="modal-fullpage" id="someFullpageModal" role="dialog" >
+		<div class="modal-header">
+			<div class="head">
+				<span class="h2">请选择银行卡</span>
+				<a class="right-option close" role="button" 
+					data-modal="#someFullpageModal" data-action="hide">关闭</a>
+			</div>
+		</div>
+		<div class="modal-body">
+			<div class="list">
+				<div class="item">新弹窗，第一个</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，这是个list哦</div>
+				<div class="item">新弹窗，最后一个</div>
+			</div>
+		</div>
+	</div>
 
 
 
