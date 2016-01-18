@@ -79,6 +79,8 @@
 		var target = e.target;
 		$(target).addClass('hide').siblings('.v-ipt').val('');
 	});
+
+	
 	//modal
 	function Modal(){
 		var self = this;
@@ -175,6 +177,24 @@
             clearTimeout(timeout);
         },myTime );
     }
+
+    //button loading 
+	$.fn.button = function(option){
+		var text = '';
+		if(typeof option === 'undefined'){
+			return false;
+		}
+		if(option.disabled){
+			text = this.text();
+			this.attr('data-text',text).removeClass('btn-red').addClass('btn-diasbled').text('安全加载中...');
+		}
+		else {
+			text = this.data('text');
+			this.removeClass('btn-diasbled').addClass('btn-red').text(text);
+		}
+
+	};
+
 
 	window.vpalmobileui = window.VMU = new Vpalmobileui();
 	Vpal.ui = new Vpalmobileui();

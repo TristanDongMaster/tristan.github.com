@@ -1,7 +1,15 @@
 $(function(){
-	//$.trace('...');
 	$('#openModal').on('tap',function(){
 		$('#someFullpageModal').modal('show');
 	});
-	//$('#openModel').vgoPlugin();
+	$('#clicktrace').tap(function(){
+		$.trace('你好啊帅哥！')
+	})
+	$('#clickdisabled').tap(function(){
+		var self = this;
+		$(self).button({disabled:true})
+		setTimeout(function(){
+			$(self).button({disabled:false})
+		},3000)
+	})
 });

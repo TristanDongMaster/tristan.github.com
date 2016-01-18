@@ -328,7 +328,32 @@ $().modal()函数接受一个参数，表示打开或者关闭modal，'show'、'
 	</script>
 
 
+### $.trace(text,fn,time)
 
+参数：
+
++ text 
+
+必须，展示文本
+
++ fn
+
+非必须，回调函数
+
++time
+
+非必须，多久后消失弹窗
+
+
+小弹框，提示用处。用法：
+	
+	//用法1
+	$.trace('你好啊！');
+
+	//用法2
+	$.trace('带回调函数的弹窗',function(){
+		console.log('hello world')
+	},3000);
 
 
 
