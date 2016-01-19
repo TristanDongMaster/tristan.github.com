@@ -156,13 +156,14 @@
         show : function(){
             var _this = this;
             var _obj = this.obj;
-            _obj.appendTo("body").show();
+            _obj.appendTo("body").fadeIn(100);
         },
         hide : function(){
             var _fn = this.fn;
             var _obj = this.obj;
-            _obj.hide();
-            _obj.remove();
+        	_obj.appendTo("body").fadeOut(100,function(){
+        		_obj.remove();
+        	});
             if(_fn){
                 _fn();
             }

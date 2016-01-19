@@ -3,7 +3,7 @@ $(function(){
 		$('#someFullpageModal').modal('show');
 	});
 	$('#clicktrace').tap(function(){
-		$.trace('你好啊帅哥！')
+		$.trace('你好啊帅哥')
 	})
 	$('#clickdisabled').tap(function(){
 		var self = this;
