@@ -12,4 +12,10 @@ $(function(){
 			$(self).button({disabled:false})
 		},3000)
 	})
+	$('#clickPageload').tap(function(){
+		$.loading('show');
+		setTimeout(function(){
+			$.loading('hide');
+		},5000)
+	})
 });
