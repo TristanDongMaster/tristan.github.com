@@ -1,3 +1,6 @@
+body{
+	background: #EAF5F9;;
+}
 .demo-col{
 	height: 3rem;
 	background: #ddd;
@@ -50,6 +53,9 @@
 	text-align: center;
 }
 
+.demo-col-img{
+	text-align: center;
+}
 .demo-img{
 	display: inline-block;
 	width: 10rem;

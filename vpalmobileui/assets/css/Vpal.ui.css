@@ -665,7 +665,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     width: 50%;
     height: 100%;
     border: 1px solid #f21377;
-    text-align: center; }
+    text-align: center;
+    background: #fff; }
     .tabs .tab:before, .tabs .tab:after {
       content: " ";
       display: table; }
@@ -701,7 +702,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     border-bottom: 1px solid #ddd;
     margin-top: -1px;
     font-size: 1.4rem;
-    color: #666; }
+    color: #666;
+    background: #fff; }
     .list .item:before, .list .item:after {
       content: " ";
       display: table; }
@@ -738,9 +740,9 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 22rem;
+    width: 20rem;
     height: 12rem;
-    margin-left: -11rem;
+    margin-left: -10rem;
     margin-top: -6rem;
     background-color: rgba(0, 0, 0, 0.9);
     border-radius: 10px;
