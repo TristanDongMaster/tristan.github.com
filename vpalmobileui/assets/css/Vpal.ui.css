@@ -824,7 +824,8 @@ a:active {
   text-decoration: none; }
 
 a:visited {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #fff; }
 
 a:hover {
   text-decoration: none; }
