@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>开始写es6吧</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes//bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes//bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes//bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">wikies.wan blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive/">所有文章</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">分类</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">标签</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>开始写es6吧 </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>28 April 2015</span>
+    </div>
+    <div class="content">
+      
+<h1 id="es6">开始写es6吧</h1>
+
+<h2 id="ecmascript-6">ECMAScript 6简介</h2>
+
+<p>ECMAScript 6（以下简称ES6）是JavaScript语言的下一代标准，正处在快速开发之中，大部分已经完成了，预计将在2015年6月正式发布。Mozilla公司将在这个标准的基础上，推出JavaScript 2.0。</p>
+
+<p>ES6的目标，是使得JavaScript语言可以用来编写大型的复杂的应用程序，成为企业级开发语言。</p>
+
+<h2 id="es6-1">ES6语法</h2>
+
+<p>传送门 <a href="http://es6.ruanyifeng.com/#README">ECMAScript 6入门 作者：阮一峰</a></p>
+
+<p>为了下文需要简单先说几个ES6的语法特征。</p>
+
+<p>ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">let</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">10;</span><span class="w">
+  </span><span class="err">var</span><span class="w"> </span><span class="err">b</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">1;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">a</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">ReferenceError:</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">defined.</span><span class="w">
+</span><span class="err">b</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="section">部署环境</h2>
+
+<p>node从0.11+支持ES6更多的新特征，如果你的node版本低的话，那就去升级吧。window下如何升级，<a href="http://wikieswan.github.io/node/2015/04/28/reinstall-node-on-window-os/">点击传送门</a></p>
+
+<p>下面是干货了，亲们注意了：</p>
+
+<h3 id="js-use-strict-">js文件以 <code class="highlighter-rouge">"use strict";</code> 开头</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"use strict";
+{
+    let a = 1;
+    console.log(a)
+}
+</code></pre>
+</div>
+
+<h3 id="node-run---harmony-">node run的时候加上 <code class="highlighter-rouge">--harmony</code> 参数</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ node --harmony demo.js
+</code></pre>
+</div>
+
+<p>这样就可以正常运行ES6的代码了，快去尝尝鲜吧。 需要注意的是，部分ES6的特性node 现在是不完全支持的，所以如果出现部分语法编译执行报错，不要慌张，等等呗！</p>
+
+<h2 id="iojses6">iojs运行ES6</h2>
+
+<p>什么？你觉得run代码的时候，在控制台输入 <code class="highlighter-rouge">--harmony</code> 是一件很挫的事情！ 是的，很多人都这样觉得，所以才有了 <code class="highlighter-rouge">iojs</code> 。那我们再试试这个神器吧！</p>
+
+<p>首先要下载 <code class="highlighter-rouge">iojs</code> ,<a href="https://iojs.org/en/index.html">传送门</a> 。安装之后就可以在命令行中输入 <code class="highlighter-rouge">iojs demo.js</code> 就可以跑ES5代码了。当然别忘记在js代码头部加上 <code class="highlighter-rouge">"use strict";</code> 。</p>
+
+<h2 id="es6-2">在项目中用ES6</h2>
+
+<p>上面介绍的两种run ES6的方式是在命令行中，那么我迫不及待要在项目中运用怎么办？</p>
+
+<p><code class="highlighter-rouge">babel</code> 神器助你一臂之力。</p>
+
+<p>用 <code class="highlighter-rouge">babel</code> 有多中方式，<a href="https://babeljs.io/docs/using-babel/">using babel</a> .总有一款属于你。</p>
+
+<p>下面来看看 gulp编译的 ES6 to ES5的前后过程吧</p>
+
+<p>项目文件结构</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>es6demo
+    dist
+        es6.js
+    src
+        es6.js
+    node_modules
+    gulpfile.js
+    package.json
+</code></pre>
+</div>
+
+<p>其中package.json关键代码，是对gulp-babel的依赖。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0"
+}
+</code></pre>
+</div>
+
+<p>gulpfile.js 的代码，主要作用是吧src中的es6代码以es5的形式编译到dist中</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>var gulp = require('gulp');
+var babel = require('gulp-babel');
+gulp.task('default', ['watch']);
+gulp.task('watch', function () {
+    gulp.watch(['src/**/*.js'], ['babel']);
+});
+gulp.task('babel', function () {
+    return gulp.src('src/**/*.js')
+        .pipe(babel())
+        .pipe(gulp.dest('dist'));
+});
+</code></pre>
+</div>
+
+<p>那么先睹为快吧</p>
+
+<p>src 中的 es6.js代码</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"use strict";
+{
+    let a = 1;        
+}
+console.log(a)
+</code></pre>
+</div>
+
+<p>dist 中的 es6.js代码</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"use strict";
+{
+    var _a = 1;
+}
+console.log(a);
+</code></pre>
+</div>
+
+<p>通过改变变量名称，把es6中的 a 变成 _a ，这样就实现了 <code class="highlighter-rouge"><span class="p">{}</span></code> 中 <code class="highlighter-rouge">let</code> 的局部变量的过程。是不是很挫！！！ 不过能用就好啦。
+发现更多？自己去试试吧。</p>
+
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="#es6-ref">
+    		es6 <span>1</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="#es6-ref">es6 <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/2015/04/28/reinstall-node-on-window-os/" title="window下卸载并重新安装node">&laquo; Previous</a></li>
+    
+      <li><a href="">Archive</a></li>
+    
+      <li class="next"><a href="/2015/08/03/git-ssh-key-install/" title="git .ssh key install">Next &raquo;</a></li>
+    
+    </ul>
+    <hr>
+    
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+
+    
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes//bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+    <script>hljs.initHighlightingOnLoad();</script>  
+  </body>
+</html>
+

@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Mac Yosemite 开机启动设置80端口转发</title>
+    <meta name="description" content="">
+    <meta name="author" content="wikieswan">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes//bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes//bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes//bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">杜若</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">所有文章</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">分类</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">标签</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>Mac Yosemite 开机启动设置80端口转发 </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>18 December 2015</span>
+    </div>
+    <div class="content">
+      
+<p>最近换了Mac系统，启动jetty时，发现80端口不能用:</p>
+
+<p>2015-01-27 23:06:57.819:WARN::failed SelectChannelConnector@0.0.0.0:80: java.net.SocketException: Permission denied 2015-01-27 23:06:57.820:INFO::Started Ajp13SocketConnector@0.0.0.0:8009 2015-01-27 23:06:57.820:INFO::AJP13 is not a secure protocol. Please protect port 8009 2015-01-27 23:06:57.820:WARN::failed Server@426c87c9: java.net.SocketException: Permission denied java.net.SocketException: Permission denied</p>
+
+<p>原因是1024以下端口，被Unix系统保留，只能以root权限使用。所以希望能够使用8080来启动jetty，然后访问80端口转向8080，在网上找到的解决方案如下：</p>
+
+<h2 id="macos-yosemite-">方案一：（MacOS Yosemite 下已失效）：</h2>
+
+<p>mac 端口转发</p>
+
+<p>》查看当前 ipfw 规则:</p>
+
+<pre><code>sudo ipfw show
+</code></pre>
+
+<p>》port 80 to 8080 forward：</p>
+
+<pre><code>sudo ipfw add 100 fwd 127.0.0.1,8080 tcp from any to any 80 in
+</code></pre>
+
+<p>》清除 ipfw 规则</p>
+
+<pre><code>sudo ipfw flush
+</code></pre>
+
+<h2 id="ipfw-">方案二：更新到 10.10 之后之前使用 ipfw 命令被彻底移除了，以下是例外一个方案（虚拟机设置的端口转发案例，并开机自动加载）。</h2>
+
+<p>下面的命令都是在 root 用户下执行，推荐执行 sudo -i 之后完成下面的操作
+创建文件 /etc/pf.anchors/vbox，添加如下两行，将本地 80，22 端口转发到 8080，8022 端口</p>
+
+<pre><code>rdr pass on lo0 inet proto tcp from any to any port 80 -&gt; 127.0.0.1 port 8080
+rdr pass on lo0 inet proto tcp from any to any port 22 -&gt; 127.0.0.1 port 8022
+</code></pre>
+
+<p>以上红色部分需要注意，OS X 默认有个本地网络端口名字叫 lo0 如果你想通过局域网甚至外网访问 80, 22 端口则还需要按照这个格式添加接入网络的端口。</p>
+
+<p>BTW: 因为非 root 用户不能使用低端口，例如 22， 80 于是我为了访问虚拟机的 ssh 以及 http 使用 22 和 80 端口，于是将 virtualbox 的端口转发设置为：</p>
+
+<pre><code>宿主机	虚拟机
+8022	22
+8080	80
+</code></pre>
+
+<p>再编辑 /etc/pf.conf 文件，在如下位置添加红色两行</p>
+
+<pre><code>scrub-anchor "com.apple/*"
+nat-anchor "com.apple/*"
+rdr-anchor "com.apple/*"
+rdr-anchor "vbox"
+dummynet-anchor "com.apple/*"
+anchor "com.apple/*"
+load anchor "com.apple" from "/etc/pf.anchors/com.apple"
+load anchor "vbox" from "/etc/pf.anchors/vbox"
+</code></pre>
+
+<p>现在可以使用命令</p>
+
+<pre><code>pfctl -ef /etc/pf.conf
+</code></pre>
+
+<p>测试端口转发是否生效
+为了实现开机自启动，需要编辑文件 /System/Library/LaunchDaemons/com.apple.pfctl.plist</p>
+
+<p>找到如下位置，添加一行红字所示，之后重启即可自动设置端口转发</p>
+
+<pre><code>&lt;string&gt;pfctl&lt;/string&gt;
+&lt;string&gt;-e&lt;/string&gt;
+&lt;string&gt;-f&lt;/string&gt;
+&lt;string&gt;/etc/pf.conf&lt;/string&gt;
+</code></pre>
+
+<p>原文地址：http://rabbit52.com/2014/desktopos/mac/yosemite-port-forwarding-at-startup</p>
+
+<p>http://www.danchex.com/?p=67</p>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#mac-ref">
+    		mac <span>3</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#mac-ref">mac <span>2</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/adnroid/2015/12/18/android-cli" title="android cli">&laquo; Previous</a></li>
+    
+      <li><a href="/archive.html">Archive</a></li>
+    
+      <li class="next"><a href="/mac/2015/12/18/mac-android-sdk" title="mac android sdk">Next &raquo;</a></li>
+    
+    </ul>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'wikieswan'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+
+    
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes//bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+    <script>hljs.initHighlightingOnLoad();</script>  
+  </body>
+</html>
+

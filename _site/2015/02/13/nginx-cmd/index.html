@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>nginx windows下命令</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes//bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes//bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes//bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">wikies.wan blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive/">所有文章</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">分类</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">标签</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>nginx windows下命令 </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>13 February 2015</span>
+    </div>
+    <div class="content">
+      
+<p>Windows下Nginx的启动、停止等命令
+在Windows下使用Nginx，我们需要掌握一些基本的操作命令，比如：启动、停止Nginx服务，重新载入Nginx等，下面我就进行一些简单的介绍。
+1、启动：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\server\nginx-1.0.2&gt;start nginx
+</code></pre>
+</div>
+
+<p>或</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\server\nginx-1.0.2&gt;nginx.exe
+</code></pre>
+</div>
+
+<p>注：建议使用第一种，第二种会使你的cmd窗口一直处于执行中，不能进行其他命令操作。
+2、停止：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\server\nginx-1.0.2&gt;nginx.exe -s stop
+</code></pre>
+</div>
+
+<p>或</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\server\nginx-1.0.2&gt;nginx.exe -s quit
+</code></pre>
+</div>
+
+<p>注：stop是快速停止nginx，可能并不保存相关信息；quit是完整有序的停止nginx，并保存相关信息。
+3、重新载入Nginx：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\server\nginx-1.0.2&gt;nginx.exe -s reload
+</code></pre>
+</div>
+
+<p>当配置信息修改，需要重新载入这些配置时使用此命令。
+4、重新打开日志文件：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\server\nginx-1.0.2&gt;nginx.exe -s reopen
+</code></pre>
+</div>
+
+<p>5、查看Nginx版本：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\server\nginx-1.0.2&gt;nginx -v
+nginx: nginx version: nginx/1.0.2
+</code></pre>
+</div>
+
+<p>或</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\server\nginx-1.0.2&gt;nginx -V
+nginx: nginx version: nginx/1.0.2 
+nginx: TLS SNI support enabled 
+nginx: configure arguments: --builddir=objs.msvc8 --crossbuild=win32 --with-debug --prefix= --conf-path=conf/nginx.conf --pid-path=logs/nginx.pid --http-log-path=logs/access.log --error-log-path=logs/error.log --sbin-path=nginx.exe --http-client-body-temp-path=temp/client_body_temp --http-proxy-temp-path=temp/proxy_temp --http-fastcgi-temp-path=temp/fastcgi_temp --with-cc-opt=-DFD_SETSIZE=1024 --with-pcre=objs.msvc8/lib/pcre-7.9 --with-zlib=objs.msvc8/lib/zlib-1.2.3 --with-select_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_stub_status_module --with-http_flv_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --with-mail --with-ipv6 --with-openssl=objs.msvc8/lib/openssl-0.9.8r --with-openssl-opt=enable-tlsext --with-http_ssl_module --with-mail_ssl_module
+</code></pre>
+</div>
+
+<p>注：v只是简单显示版本信息，V不但显示版本信息，还显示配置参数信息。
+6、测试或载入指定配置文件：
+测试配置文件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\server\nginx-1.0.2&gt;nginx.exe -t -c conf/default.conf
+nginx: the configuration file C:\server\nginx-1.0.2/conf/default.conf syntax isok
+nginx: configuration file C:\server\nginx-1.0.2/conf/default.conf test is successful
+</code></pre>
+</div>
+
+<p>载入指定配置文件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\server\nginx-1.0.2&gt;start nginx.exe -c conf/default.conf
+</code></pre>
+</div>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="#tools-ref">
+    		tools <span>5</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="#nginx-ref">nginx <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/2015/02/10/knockoutjs-api/" title="knockoutjs api">&laquo; Previous</a></li>
+    
+      <li><a href="">Archive</a></li>
+    
+      <li class="next"><a href="/2015/02/13/node-environment-setting/" title="node中设置环境是生产或者开发或者测试 node environment setting">Next &raquo;</a></li>
+    
+    </ul>
+    <hr>
+    
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+
+    
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes//bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+    <script>hljs.initHighlightingOnLoad();</script>  
+  </body>
+</html>
+

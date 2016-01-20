@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>localStorage 介绍</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes//bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes//bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes//bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">wikies.wan blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive/">所有文章</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories/">分类</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages/">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags/">标签</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>localStorage 介绍 </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>03 April 2015</span>
+    </div>
+    <div class="content">
+      
+<h2 id="section">简介</h2>
+<p>localStorage 是html5的新特性，它提供了一个能在浏览器端做数据存储的对象。</p>
+
+<h2 id="localstorage-api">localStorage API</h2>
+
+<p>1 clear()
+清空本地localStorage存储。</p>
+
+<p><code class="highlighter-rouge">javascript
+	localStorage.clear()
+</code></p>
+
+<p>2 getItem(‘key’)
+获取localStorage对象中key为参数的对象值。</p>
+
+<p><code class="highlighter-rouge">javascript
+	localStorage.getItem('key')
+</code></p>
+
+<p>3 setItem(‘key’,value)
+设置localStorage中键值为key对象的值为value</p>
+
+<p><code class="highlighter-rouge">javascript
+	localStorage.setItem('key',value)
+</code></p>
+
+<p>4 removeItem(‘key’)
+删除localStorage中键值为key的对象</p>
+
+<p><code class="highlighter-rouge">javascript
+	localStorage.removeItem('key')
+</code></p>
+
+<p>5 key(index)
+获取索引值为index的key值</p>
+
+<p><code class="highlighter-rouge">javascript
+	localStorage.key(0)
+</code>
+6 length
+	localStorage的长度属性</p>
+
+<p><code class="highlighter-rouge">javascript
+	localStorage.length
+</code></p>
+
+<h2 id="section-1">一段小程序介绍上面接口的用法</h2>
+
+<p>```javascript
+	//清空
+	localStorage.clear()</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>//查看当前的 localStorage 对象
+localStorage
+Storage {length: 0}
+
+//新增一个'name'属性，它的值是'lucy'
+localStorage.setItem('name','lucy')
+
+//查看 'name'属性的值
+localStorage.getItem('name')
+"lucy"
+
+//这时候 localStorage 的长度是1
+localStorage.length
+1
+
+//localStorage 的第一个对象的key是 'name'
+localStorage.key(0)
+"name"
+
+//删除'name'属性
+localStorage.removeItem('name')
+
+//这时候localStorage的长度是 0
+localStorage
+Storage {length: 0} ```
+</code></pre>
+</div>
+
+<h2 id="section-2">兼容性</h2>
+<p>localStorage 对象是html5的新特性，老版本的浏览器是不兼容的。我们先来看看都有哪些兼容。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>桌面浏览器
+Feature		Chrome	Ff	IE	Opera	Safari (WebKit)
+localStorage	4	3.5	8	10.50	4
+sessionStorage	5	2	8	10.50	4
+</code></pre>
+</div>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">更多请查看</a></p>
+
+<p>但是，并不是说老版本的浏览器就没有机会尝试这种新家伙了，我们可以用cookie来做老版本浏览器的兼容。</p>
+
+<p>这段代码是用cookie来模拟 localStorage 对象的特性</p>
+
+<p>```javascript</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if (!window.localStorage) {
+  Object.defineProperty(window, "localStorage", new (function () {
+    var aKeys = [], oStorage = {};
+    Object.defineProperty(oStorage, "getItem", {
+      value: function (sKey) { return sKey ? this[sKey] : null; },
+      writable: false,
+      configurable: false,
+      enumerable: false
+    });
+    Object.defineProperty(oStorage, "key", {
+      value: function (nKeyId) { return aKeys[nKeyId]; },
+      writable: false,
+      configurable: false,
+      enumerable: false
+    });
+    Object.defineProperty(oStorage, "setItem", {
+      value: function (sKey, sValue) {
+        if(!sKey) { return; }
+        document.cookie = escape(sKey) + "=" + escape(sValue) + "; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
+      },
+      writable: false,
+      configurable: false,
+      enumerable: false
+    });
+    Object.defineProperty(oStorage, "length", {
+      get: function () { return aKeys.length; },
+      configurable: false,
+      enumerable: false
+    });
+    Object.defineProperty(oStorage, "removeItem", {
+      value: function (sKey) {
+        if(!sKey) { return; }
+        document.cookie = escape(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+      },
+      writable: false,
+      configurable: false,
+      enumerable: false
+    });
+    this.get = function () {
+      var iThisIndx;
+      for (var sKey in oStorage) {
+        iThisIndx = aKeys.indexOf(sKey);
+        if (iThisIndx === -1) { oStorage.setItem(sKey, oStorage[sKey]); }
+        else { aKeys.splice(iThisIndx, 1); }
+        delete oStorage[sKey];
+      }
+      for (aKeys; aKeys.length &gt; 0; aKeys.splice(0, 1)) { oStorage.removeItem(aKeys[0]); }
+      for (var aCouple, iKey, nIdx = 0, aCouples = document.cookie.split(/\s*;\s*/); nIdx &lt; aCouples.length; nIdx++) {
+        aCouple = aCouples[nIdx].split(/\s*=\s*/);
+        if (aCouple.length &gt; 1) {
+          oStorage[iKey = unescape(aCouple[0])] = unescape(aCouple[1]);
+          aKeys.push(iKey);
+        }
+      }
+      return oStorage;
+    };
+    this.configurable = false;
+    this.enumerable = true;
+  })());
+}
+</code></pre>
+</div>
+
+<p>```</p>
+
+<p>我们用cookie来模拟localScorage对象，归根对象的本身还是cookie，那么就会有cookie自身的限制，同一个域下cookie的个数是有限制的，每个cookie对应的长度也是有限制的，一般小于4k。
+所以如果用它来存储大数据时，需要考虑到这些限制，以免出现未知错误。</p>
+
+<p>在对localScorage对象的属性进行增删改查的时候，我们要用 
+<code class="highlighter-rouge">localStorage.getItem('key')</code> ,<code class="highlighter-rouge">localStorage.getItem('key',value)</code> .<code class="highlighter-rouge">localStorage.removeItem('key')</code> ;而不是用 <code class="highlighter-rouge">localStorage.key</code> 的方式进行操作。因为这样的话可能不会以正确的方式。</p>
+
+<p>还有另外一种方式来做 localStorage 对象的兼容性。下面这种方法可以向下兼容到更低版本的IE，比如IE&lt;8的都可以兼容。同样，我们还是用cookie来模拟 localStorage 对象。</p>
+
+<p>```javascript</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if (!window.localStorage) {
+  window.localStorage = {
+    getItem: function (sKey) {
+      if (!sKey || !this.hasOwnProperty(sKey)) { return null; }
+      return unescape(document.cookie.replace(new RegExp("(?:^|.*;\\s*)" + escape(sKey).replace(/[\-\.\+\*]/g, "\\$&amp;") + "\\s*\\=\\s*((?:[^;](?!;))*[^;]?).*"), "$1"));
+    },
+    key: function (nKeyId) {
+      return unescape(document.cookie.replace(/\s*\=(?:.(?!;))*$/, "").split(/\s*\=(?:[^;](?!;))*[^;]?;\s*/)[nKeyId]);
+    },
+    setItem: function (sKey, sValue) {
+      if(!sKey) { return; }
+      document.cookie = escape(sKey) + "=" + escape(sValue) + "; expires=Tue, 19 Jan 2038 03:14:07 GMT; path=/";
+      this.length = document.cookie.match(/\=/g).length;
+    },
+    length: 0,
+    removeItem: function (sKey) {
+      if (!sKey || !this.hasOwnProperty(sKey)) { return; }
+      document.cookie = escape(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+      this.length--;
+    },
+    hasOwnProperty: function (sKey) {
+      return (new RegExp("(?:^|;\\s*)" + escape(sKey).replace(/[\-\.\+\*]/g, "\\$&amp;") + "\\s*\\=")).test(document.cookie);
+    }
+  };
+  window.localStorage.length = (document.cookie.match(/\=/g) || window.localStorage).length;
+}
+</code></pre>
+</div>
+
+<p>```</p>
+
+<p>注意到这两中兼容的写法不同之处在于第一种方式用了 Object.defineProperty() 这个方法。
+而这个方法是在IE&gt;=9才支持。<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">详细了解请猛戳</a>.。</p>
+
+<p>对比这两种兼容方式，官方给的说法是第一种更贴近 localStorage 内部实现的机制，第二种只是在表现形式上进行模拟。</p>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="#javascript-ref">
+    		javascript <span>10</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="#javascript-ref">javascript <span>7</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/2015/03/30/front-end-framework-diy/" title="自己动手做一个前端SPA框架">&laquo; Previous</a></li>
+    
+      <li><a href="">Archive</a></li>
+    
+      <li class="next"><a href="/2015/04/07/ko-with/" title="ko with 绑定说明">Next &raquo;</a></li>
+    
+    </ul>
+    <hr>
+    
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+
+    
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes//bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+    <script>hljs.initHighlightingOnLoad();</script>  
+  </body>
+</html>
+

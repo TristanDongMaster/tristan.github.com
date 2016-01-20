@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>获取全局对象 this || (0, eval)('this')</title>
+    <meta name="description" content="">
+    <meta name="author" content="wikieswan">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">杜若</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">所有文章</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">分类</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">标签</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>获取全局对象 this || (0, eval)('this') </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>27 February 2015</span>
+    </div>
+    <div class="content">
+      
+<h2 id="section">获取全局对象</h2>
+
+<pre><code>var window = this || (0, eval)('this')
+</code></pre>
+
+<p>全局变量的正确获取方式如上，那么为什么不能直接用 <code>window</code> 或者 <code>this</code> 呢？</p>
+
+<p>在一些封装的js库中，我们经常可以见到上面的写法来获取全局对象，这样的写法很安全，可以保证无论如何方式
+引用库文件，都可以把对象追加到全局全局对象下面。</p>
+
+<p><code>this</code>
+表达中的指向的当前调用者，如果在浏览器中，它就是 <code>window</code> ，其他环境中就是别的全局对象，比如node的v8环境。所以不能直接用 <code>window</code> 来
+表示全局变量。
+<code>eval</code>
+的间接调用可以保证当
+<code>this</code>
+无效的时候还可以取到全局对象。</p>
+
+<p><code>(0, eval)('this')</code> 间接的调用了 <code>eval</code> 。首先解释怎么间接调用，这里用到我们不常用的逗号表达式 <code>,</code>
+它的用法可以MDN查下，简单的说一个特征就是逗号表达式是取最后面的一个值作为结果。如：</p>
+
+<pre><code>(1,2,3,4,5,6,7,8)
+8
+</code></pre>
+
+<p>又如：</p>
+
+<pre><code>function a(){}
+(1,a)
+function a(){}
+</code></pre>
+
+<p>又如：</p>
+
+<pre><code>(0, eval)
+function eval() { [native code] }
+</code></pre>
+
+<p>所以<code>(0, eval)('this')</code>的结果是 <code>eval('this')</code> ，这个 <code>this</code> 指向的调用者。在浏览器中指向的window。</p>
+
+<p>其次，为什么需要间接调用呢？<code>var window = this || eval('this')</code> 这样写有什么问题？</p>
+
+<p>看个例子</p>
+
+<pre><code>function f () {
+    console.log(this, eval('this'), (0, eval)('this'));
+}
+
+var o = {};
+f.apply(o);
+Object {} Object {} Window {top: Window, window: Window, location: Location, external: Object, chrome: Object…} 
+</code></pre>
+
+<p>这个例子中可以看到，无论如何方式调用<code>(0, eval)('this')</code>，返回的都是全局对象，而 <code>eval('this')</code> 可能返回的调用者的对象。
+至于为什么会有这样的区别，可以看下面解释。</p>
+
+<p><code>eval('this')</code> 获取的对象  <code>o</code> 的 <code>this</code> 所以返回的是空对象；<code>(0, eval)('this')</code>表达式是先接受对象 <code>o</code> 的 <code>this</code> ，但是执行过程是逗号表达式返回了一个函数 <code>eval()</code> ，返回的函数再执行的时候，这是的<code>this</code>则不是指向 <code>o</code> ，
+ 而是指向了全局对象。所以可以这样延展 <code>(0||eval)()</code> ，也是可以起到相同的作用。</p>
+
+<p>参考资料:
+ <a href="http://stackoverflow.com/questions/14119988/return-this-0-evalthis/14120023#14120023">return this || (0,eval)(‘this’);</a></p>
+
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#javascript-ref">
+    		javascript <span>10</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>7</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/javascript/2015/02/13/node-httpget-data" title="node http.get 接受数据的方式">&laquo; Previous</a></li>
+    
+      <li><a href="/archive.html">Archive</a></li>
+    
+      <li class="next"><a href="/javascript/2015/02/28/sse-dmeo" title="SSE 简单入门">Next &raquo;</a></li>
+    
+    </ul>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'wikieswan'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+
+    
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+    <script>hljs.initHighlightingOnLoad();</script>  
+  </body>
+</html>
+

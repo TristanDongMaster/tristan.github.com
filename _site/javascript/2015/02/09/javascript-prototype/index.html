@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>javascript 原型</title>
+    <meta name="description" content="">
+    <meta name="author" content="wikieswan">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">  
+
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">杜若</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">所有文章</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">分类</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">标签</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>javascript 原型 </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>09 February 2015</span>
+    </div>
+    <div class="content">
+      
+<h2 id="prototype">什么是原型 prototype</h2>
+<p>原型是构造器函数的属性。在函数被定义时，会创建一个prototype属性，它的起始值是一个空对象。</p>
+
+<pre><code>function foo(a,b){
+	return a+b;
+}
+
+foo.length
+&gt;2
+
+foo.constructor
+&gt;function Function() { [native code] }
+
+foo.prototype
+&gt;foo {}
+</code></pre>
+
+<h2 id="section">利用原型添加方法和属性</h2>
+<p>我们现在有一个构造器函数如下：</p>
+
+<pre><code>function Person(name){
+	this.name = name;
+	this.getName = function(){
+		console.log('my name is ' + this.name) ;
+	}
+}
+</code></pre>
+
+<p>我们可以用prototype来添加更多的属性和方法：</p>
+
+<pre><code>Person.prototype.color = 'white';
+Person.prototype.say = function(words){
+	console.log(words);
+}
+</code></pre>
+
+<p>如果不想逐一用prototype添加属性和方法，可以利用一个对象，然后覆盖到原来的原型上去。</p>
+
+<pre><code>Person.prototype = {
+	color : 'white',
+	say : function(words){
+		console.log('i say : '+words)
+	}
+}
+</code></pre>
+
+<h2 id="section-1">使用原型中的属性和方法</h2>
+<p>我们利用 Person 构造器函数创建一个对象 jack ，就可以访问到原型中的方法了。</p>
+
+<pre><code>var jack = new Person('jack');
+jack.getName();//自身方法
+&gt;my name isjack 
+
+jack.name//自身属性
+"jack"
+
+jack.color//原型属性
+&gt;"white"
+
+jack.say('hello')//原型方法
+&gt;i say : hello 
+</code></pre>
+
+<h2 id="section-2">自身属性与原型属性</h2>
+
+<p>上面的demo中可以发现 jack 可以访问到自身属性和原型属性。
+所谓自身属性是指在构造器中函数中定义的属性，原型属性则是在原型中定义的方法，如上例。
+当我们访问某个属性的时候， JavaScript 会遍历对象的所有属性，如果找到就返回；如果找不到就去查询创建当前对象的构造器函数的原型，如果原型中找到，就立即返回，否则返回undefined，如：</p>
+
+<pre><code>jack.color//原型方法
+&gt;"white"
+</code></pre>
+
+<h2 id="section-3">利用自身属性重写原型属性</h2>
+
+<p>弄清楚了自身属性和原型属性的区别之后，我们会想到这样一个问题：如果对象自身属性和原型属性同名怎么办？
+先说答案：对象自身属性的优先级高于原型属性。</p>
+
+<pre><code>function Person(name){
+	this.name = name;
+	this.getName = function(){
+		console.log('my name is ' + this.name) ;
+	}
+}
+
+Person.prototype = {
+	color : 'white',
+	say : function(words){
+		console.log('i say : '+words)
+	}
+}
+
+Person.prototype.name = 'fool';
+
+var jack = new Person('jack');
+
+jack.name
+&gt;"jack"
+
+delete jack.name
+jack.name
+&gt;"fool"
+</code></pre>
+
+<p>可以看到在原型中有name属性，自身属性也有name属性，对象会取对象的name属性，而不是原型中的。
+有了这个特性之后，我们就可以利用构造器来重写原型中的属性了。</p>
+
+<h2 id="isprototypeof">isPrototypeOf()方法</h2>
+
+<p>每个对象中都有一个 isPrototypeOf() 方法，这个方法告诉我们当前对象是否是另一个对象的原型。</p>
+
+<pre><code>function Person(name){
+	this.name = name;
+	this.getName = function(){
+		console.log('my name is ' + this.name) ;
+	}
+}
+
+var proto = {
+	color : 'white',
+	say : function(words){
+		console.log('i say : '+words)
+	}
+}
+
+Person.prototype = proto;
+
+var jack  =new Person('jack');
+proto.isPrototypeOf(jack)
+&gt;true
+</code></pre>
+
+<h2 id="proto-"><strong>__proto</strong>__ 链接</h2>
+<p><strong>__proto</strong>__ ： 对象中存在一个指向相关原型的链接，这个链接在ff中被叫做 <strong>__proto</strong>__ 。</p>
+
+<p>看个例子：</p>
+
+<pre><code>function Person(name){
+	this.name = name;
+	this.getName = function(){
+		console.log('my name is ' + this.name) ;
+	}
+}
+
+var proto = {
+	color : 'white',
+	say : function(words){
+		console.log('i say : '+words)
+	}
+}
+
+Person.prototype = proto;
+
+var jack  =new Person('jack');
+
+jack.color
+&gt;'white'
+</code></pre>
+
+<p>Person 中没有color属性，JavaScript就到原型中去寻找color属性；那么这就意味着我们可以从对象jack中获取原型对象。具体做法是把
+构造器作为一个中转站， 执行</p>
+
+<pre><code>jack.constructor.prototype 
+</code></pre>
+
+<p>就可以调用。
+我们现在把这个中转站重写了，</p>
+
+<pre><code>jack.constructor = 'str'
+
+typeof jack.constructor.prototype
+&gt;"undefined"
+
+jack.color //原型属性
+&gt;"white"
+</code></pre>
+
+<p>可以发现原型和jack的关系已经被我们打乱了，但是 jack.color 还是可以访问到原型中的属性值，这说明对象中有个隐形链接指向原型，这个就是 <strong>__proto</strong>__</p>
+
+<p>需要说明的是，该属性在ie浏览器中是不存在的。</p>
+
+<p><strong>__proto</strong>__ 与 prototype并不是等价的。 <strong>__proto</strong>__ 实际上是某个实体对象的属性 ，而 prototype则是属于构造器函数的属性。
+<strong>__proto</strong>__只能在调试环境下使用。</p>
+
+    </div>
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-open"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/categories.html#javascript-ref">
+    		javascript <span>10</span>
+    	</a></li>
+    
+  
+
+
+    </ul>
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>7</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/tools/2015/02/05/collection" title="收藏夹">&laquo; Previous</a></li>
+    
+      <li><a href="/archive.html">Archive</a></li>
+    
+      <li class="next"><a href="/javascript/2015/02/10/knockoutjs-api" title="knockoutjs api">Next &raquo;</a></li>
+    
+    </ul>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'wikieswan'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+
+    
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>  
+    <script>hljs.initHighlightingOnLoad();</script>  
+  </body>
+</html>
+
