@@ -360,6 +360,7 @@ html {
 
 .btn {
   display: inline-block;
+  padding: 0;
   margin-bottom: 0;
   font-weight: normal;
   text-align: center;
@@ -381,24 +382,18 @@ html {
   color: #fff;
   font-size: 1.8rem;
   border-radius: 0.3rem; }
-  .btn:focus, .btn.focus, .btn:active:focus, .btn:active.focus, .btn.active:focus, .btn.active.focus {
-    outline-offset: -2px; }
-  .btn:hover, .btn:focus, .btn.focus {
-    text-decoration: none; }
-  .btn:active, .btn.active {
+  .btn, .btn.active {
     outline: 0;
     background-image: none; }
+  .btn:hover, .btn.focus {
+    text-decoration: none;
+    outline-offset: -2px; }
+  .btn.visited {
+    color: #fff; }
   .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
     cursor: false;
     opacity: 0.65;
     box-shadow: none; }
-
-a.btn {
-  cursor: pointer; }
-  a.btn.disabled, fieldset[disabled] a.btn {
-    pointer-events: none; }
-  a.btn:visited, a.btn.active, a.btn:hover, a.btn:focus {
-    color: #fff; }
 
 .btn-default {
   background: #ddd; }
@@ -416,6 +411,7 @@ a.btn {
 
 .btn-loading {
   overflow: hidden;
+  color: #fff;
   background: #f21377;
   line-height: 4rem; }
   .btn-loading .btn-loading-before {
@@ -961,21 +957,18 @@ a {
   display: inline-block;
   background: transparent;
   text-decoration: none;
-  color: inherit;
-  -webkit-tap-highlight-color: transparent; }
+  color: #000;
+  -webkit-tap-highlight-color: rgba(255, 255, 0, 0); }
 
 a:link {
-  text-decoration: none;
-  color: #fff; }
+  text-decoration: none; }
 
 a:active {
-  text-decoration: none;
-  color: #fff; }
+  text-decoration: none; }
 
 a:visited {
   text-decoration: none;
-  color: #fff; }
+  color: #000; }
 
 a:hover {
-  text-decoration: none;
-  color: #fff; }
+  text-decoration: none; }
