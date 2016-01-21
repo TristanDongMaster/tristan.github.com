@@ -221,6 +221,60 @@ html {
 .icon-success:before {
   content: "\e908"; }
 
+@-webkit-keyframes ani-hide {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+  100% {
+    -webkit-transform: translate(0, 100%);
+            transform: translate(0, 100%); } }
+
+@keyframes ani-hide {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+  100% {
+    -webkit-transform: translate(0, 100%);
+            transform: translate(0, 100%); } }
+
+@-webkit-keyframes ani-btn-turn-down {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+  100% {
+    -webkit-transform: translate(0, 100%);
+            transform: translate(0, 100%); } }
+
+@keyframes ani-btn-turn-down {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); }
+
+  100% {
+    -webkit-transform: translate(0, 100%);
+            transform: translate(0, 100%); } }
+
+@-webkit-keyframes ani-btn-turn-up {
+  0% {
+    -webkit-transform: translate(0, -100%);
+            transform: translate(0, -100%); }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); } }
+
+@keyframes ani-btn-turn-up {
+  0% {
+    -webkit-transform: translate(0, -100%);
+            transform: translate(0, -100%); }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0); } }
+
 .container {
   width: 100%;
   margin-right: auto;
@@ -321,7 +375,7 @@ html {
       -ms-user-select: none;
           user-select: none;
   width: 100%;
-  padding: 1.2rem 0;
+  height: 4rem;
   text-align: center;
   background: #ddd;
   color: #fff;
@@ -339,8 +393,12 @@ html {
     opacity: 0.65;
     box-shadow: none; }
 
-a.btn.disabled, fieldset[disabled] a.btn {
-  pointer-events: none; }
+a.btn {
+  cursor: pointer; }
+  a.btn.disabled, fieldset[disabled] a.btn {
+    pointer-events: none; }
+  a.btn:visited, a.btn.active, a.btn:hover, a.btn:focus {
+    color: #fff; }
 
 .btn-default {
   background: #ddd; }
@@ -355,6 +413,95 @@ a.btn.disabled, fieldset[disabled] a.btn {
   -webkit-transform: scale(0.99);
           transform: scale(0.99);
   box-shadow: 0px 0px 20px #FFF; }
+
+.btn-loading {
+  overflow: hidden;
+  background: #f21377;
+  line-height: 4rem; }
+  .btn-loading .btn-loading-before {
+    display: block;
+    height: 4rem;
+    width: 100%; }
+  .btn-loading .btn-loading-after {
+    height: 4rem;
+    width: 100%;
+    margin-top: -8rem; }
+
+.btn-loading-after {
+  display: none;
+  background: #ddd; }
+
+.btn-animate {
+  background: #ddd; }
+  .btn-animate .btn-loading-before {
+    background: #ddd;
+    -webkit-animation-name: ani-btn-turn-down;
+            animation-name: ani-btn-turn-down;
+    -webkit-animation-duration: 0.6s;
+            animation-duration: 0.6s;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-direction: normal;
+            animation-direction: normal;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    border-radius: 0.3rem; }
+  .btn-animate .btn-loading-after {
+    display: block;
+    -webkit-animation-name: ani-btn-turn-down;
+            animation-name: ani-btn-turn-down;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-direction: normal;
+            animation-direction: normal;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
+    border-radius: 0.3rem; }
+
+.btn-animate-remove {
+  background: #ddd; }
+  .btn-animate-remove .btn-loading-before {
+    background: #f21377;
+    -webkit-animation-name: ani-btn-turn-up;
+            animation-name: ani-btn-turn-up;
+    -webkit-animation-duration: 0.6s;
+            animation-duration: 0.6s;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-direction: normal;
+            animation-direction: normal;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1; }
+  .btn-animate-remove .btn-loading-after {
+    display: block;
+    -webkit-animation-name: ani-btn-turn-up;
+            animation-name: ani-btn-turn-up;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-timing-function: ease;
+            animation-timing-function: ease;
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-direction: normal;
+            animation-direction: normal;
+    -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1; }
 
 .btn-link {
   font-weight: normal;
