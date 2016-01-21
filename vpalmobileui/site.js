@@ -21,19 +21,14 @@ $(function(){
 
 	$('.J-demo-btnloading').tap(function(){
 		var isBtnLoading = $(this).buttonLoading() 
-		console.log(isBtnLoading) 
-
-		if(isBtnLoading){
-			$(this).buttonLoading('hide',function(){console.log(2)})
-		}
-		else{
-			$(this).buttonLoading('show',function(){console.log(3)})
-		}
-
+		var self = this;
+		$(self).buttonLoading('show',function(){console.log(3)});
+		setTimeout(function(){
+			$(self).buttonLoading('hide',function(){console.log(2)})
+		},5000)
 		if(isBtnLoading){
 			return false;
 		}
-
 		// code goes here
 		
 	})
