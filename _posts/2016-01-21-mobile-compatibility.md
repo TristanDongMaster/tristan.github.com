@@ -70,12 +70,12 @@ QQ浏览器版本：6.3.0.1960
 
 + 点击前
 
-![Alt text](/img/de-not-delete/qq-a-click-before.jpg)
+![Alt text](/img/do-not-delete/qq-a-click-before.jpg)
 
 
 + 点击后 
 
-![Alt text](/img/de-not-delete/qq-a-click-after.jpg)
+![Alt text](/img/do-not-delete/qq-a-click-after.jpg)
 
 
 但是在其他浏览器：比如Safari、UC等浏览器中没有发现这个问题。
