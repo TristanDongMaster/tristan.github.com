@@ -21,7 +21,7 @@ QQ浏览器版本：6.3.0.1960
 
 代码如下：
 
-```html
+
 	<!DOCTYPE html>
 	<html>
 	<head>
@@ -65,7 +65,7 @@ QQ浏览器版本：6.3.0.1960
 		<a href="javascript:;">hello word</a>
 	</body>
 	</html>
-```
+
 
 
 + 点击前
