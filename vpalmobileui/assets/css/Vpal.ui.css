@@ -858,6 +858,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   .list .active {
     background: #fafafa;
     color: #f21377; }
+  .list .touching {
+    background: #FCF3F3; }
 
 .trace {
   position: fixed;
