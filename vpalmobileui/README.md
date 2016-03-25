@@ -1,7 +1,8 @@
 # front-end workflow 
 
 ##  工具流提供的接口
-	
+
+```javascript	
 	//根据 package.json 的分支和版本信息，对新建分支进行初始化
 	gulp init
 
@@ -26,6 +27,7 @@
 
 	//清除pc 打包后的code
 	gulp clear-pc
+```
 
 ## 工具流使用方法
 
@@ -33,6 +35,7 @@
 
 目前 vpalstatic 域下的所有静态资源都是增量发布的，线上 code 的目录结构大致如下:
 
+```javascript
 	vpalstatic/
 		css/
 			public/
@@ -46,7 +49,7 @@
 		js/
 		lib/
 		src/
-
+```
 
 
 + 1 font html img js 和 css 的目录结构一样，就省略不写了。src 是前端开发源文件放置的位置，不上线
@@ -58,34 +61,44 @@
 
 #### 1 请从远程的 generater 分支上切换到自己的开发分支，假如开发分支是 wallet-v1,那就在 generater 分支下执行
 
+```javascript
 	git checkout -b  wallet-v1
+```
 
 #### 2 打开 src/package.json ， 修改 dir.branchName dir.versionName 的值，如下
 
+```javascript
 	"dir": {
 	    "branchName": "wallet",
 	    "versionName": "v1"
 	}
+```
 
 #### 3 到src目录下执行项目初始化命令，按照下面的顺序执行：
 
+```javascript
 	cd src
 	npm install
 	gulp init
+```
 
 这一步需要依赖 node npm gulp 环境，如果没有请自行安装。
 
 #### 4 这时候所有的开发环境都准备好了，开始写 code ，启动静态服务器，监听所有修改
 
+```javascript
 	gulp
+```
 
 #### 5 开发完成之后，对项目进行打包。
 
 这一步的主要作用是把 src 目录下的code 复制到对应的上线目录中
 注意，h5 和 pc 的code 是分开打包的，因为一般情况下 h5 和 pc 项目是分开开发的
 
+```javascript
 	gulp build-h5	
 	//gulp build-pc
+```
 
 到这里，开发流程就完成了！
 
@@ -97,6 +110,7 @@ vpalstatic 是前后端分离的开发模式，开发过程中，启动了 node 
 那么为了在调用后端接口的时候避免跨域的问题，我们使用了 nginx 做了一层代理。
 nginx 配置信息如下：
 
+```javascript
 	worker_processes  1;
 	events {
 	    worker_connections  1024;
@@ -120,16 +134,21 @@ nginx 配置信息如下：
 	    }
 	}
 	include servers/*;
+```
 
 host 配置信息如下
 
+```javascript
 	10.100.79.228 myvpal.vip.com
 	10.100.79.228 myvpal.vip.vpal.com
 	127.0.0 vpal.vipstatic.com
+```
 
 nginx 服务器启动的是 9000 端口，那么我们在浏览器中访问 
 
+```javascript
 	http://127.0.0.1:9000
+```
 
 这时候， nginx 会把所有的 /api 接口请求转发到 10.100.79.228 myvpal.vip.com ，
 而其他的请求都转发到 127.0.0 vpal.vipstatic.com 。这样我们就可以愉快的和 backend 调接口了。
