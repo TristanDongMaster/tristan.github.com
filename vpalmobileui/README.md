@@ -2,7 +2,7 @@
 
 ##  工具流提供的接口
 
-```sh	
+```bash	
 	//根据 package.json 的分支和版本信息，对新建分支进行初始化
 	gulp init
 
@@ -110,7 +110,7 @@ vpalstatic 是前后端分离的开发模式，开发过程中，启动了 node 
 那么为了在调用后端接口的时候避免跨域的问题，我们使用了 nginx 做了一层代理。
 nginx 配置信息如下：
 
-```sh
+```nginx
 	worker_processes  1;
 	events {
 	    worker_connections  1024;
@@ -172,8 +172,8 @@ nginx 服务器启动的是 9000 端口，那么我们在浏览器中访问
 
 js 模块化开发，我们推荐是用 webpack 工具，使用 webpack 的好处：
 
-	生产环境不依赖第三方库，例如 seajs 或者 requirejs
-	可以放心使用 es6 语法，这样就有
+1 生产环境不依赖第三方库，例如 seajs 或者 requirejs
+2 可以放心使用 es6 语法，这样就有
 
 目前h5 端开发是使用 webpack ，pc端使用 seajs。鉴于seajs 社区没落，打包工具不完善等因素，建议pc 端也转向 webpack 打包模块化 js 文件。
 
