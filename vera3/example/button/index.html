@@ -1,0 +1,131 @@
+
+<div class="container">
+	<p class="demo-p">按钮 button </p>
+	<p class="demo-p">btn btn-basic</p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic">俩字</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic">三个字</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic">四个字的</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic">五个字按钮</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic" disabled>六个字的按钮</button>
+		</div>
+	</div>
+	<p class="demo-p">btn btn-border</p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-border">俩字</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-border" disabled>俩字</button>
+		</div>
+	</div>
+
+	<p class="demo-p">btn btn-border btn-border-grey</p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-border btn-border-grey">俩字</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-border btn-border-grey" disabled>俩字</button>
+		</div>
+	</div>
+	<p class="demo-p">btn btn-border btn-small</p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-border btn-small">俩字</button>
+		</div>
+	</div>
+
+	<p class="demo-p">btn btn-border btn-mini</p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-border btn-mini">俩字</button>
+		</div>
+	</div>
+
+	<p class="demo-p">btn btn-basic btn-full</p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic btn-full">俩字</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic btn-full" disabled>俩字</button>
+		</div>
+	</div>
+	<p class="demo-p">按钮状态切换--触发下面按钮的状态</p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic" id="J-btn-switch">点击切换</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic J-btn-status">注意看我的状态</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-border  J-btn-status" >注意看我的状态</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-border btn-small  J-btn-status" >注意看我的状态</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-border btn-mini  J-btn-status" >注意看我的状态</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-border btn-border-grey J-btn-status" >注意看我的状态</button>
+		</div>
+	</div>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic btn-full J-btn-status" >注意看我的状态</button>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		$('#J-btn-switch').click(function(){
+			var hasAttr  = typeof $('.J-btn-status').attr('disabled') == 'undefined'
+			console.log(hasAttr)
+			if(!hasAttr){
+				$('.J-btn-status').removeAttr('disabled')
+			}
+			else{
+				$('.J-btn-status').attr('disabled','')
+			}
+		})
+	})
+</script>
+
+
