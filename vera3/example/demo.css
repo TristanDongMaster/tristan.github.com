@@ -1,0 +1,26 @@
+body{
+	background: #EAF5F9;
+}
+.demo-col{
+	padding: 0.1rem;
+	font-size: 0.14rem;
+}
+
+.demo-col:nth-child(odd){
+	background:#eee;
+}
+.demo-col:nth-child(even){
+	background:#ddd;
+}
+.demo-p {
+    flex: 1 1 auto;
+    padding: 0.1rem;
+    color: #f21377;
+    font-size: 0.15rem;
+    border-left: 3px solid #f21377;
+    margin-left: 0.1rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.1rem;
+    background: #FCF3F3;
+    margin-right: 0.1rem;
+}

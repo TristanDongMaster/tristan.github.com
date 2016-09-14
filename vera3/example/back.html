@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="msapplication-tap-highlight" content="no">	
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<title></title>
+  <style type="text/css">
+    .btn{
+      text-align: center;
+      height: 40px;
+      border: 1px solid #ccc;
+    }
+  </style>
+  </head>
+  <body>
+
+      <button id="showToast" class="btn">showToast</button>
+      <button id="showDialog" class="btn">showDialog</button>
+      <button id="showLoading" class="btn">showLoading</button>
+  </body>
+</html>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="./hercules.js"></script>
+<script type="text/javascript" src="../dist/hrecules.polyfill.js"></script>
+<script type="text/javascript">
+  $(function(){
+    VHPF.ui.env='h5'
+    $('#showToast').click(function(){
+      VHPF.ui.showToast({content:'这是个toast事实上事实上事实上是多少大的撒大大'})
+    })
+    $('#showDialog').click(function(){
+      
+      var buttonCenterEventMethod = function(){
+        console.log(0)
+      }
+      var buttonLeftEventMethod = function(){
+        console.log(1)
+      }
+      var buttonRightEventMethod = function(){
+        console.log(2)
+      }
+      var param ={
+          content: "用中文解释就是用中文解释",
+          buttonType: "BUTTON_TYPE_LEFTRIGHT",//BUTTON_TYPE_CENTER BUTTON_TYPE_LEFTRIGHT
+          buttonCenterText: "确定",
+          buttonCenterEventMethod: buttonCenterEventMethod,
+          buttonLeftText: "取消",
+          buttonLeftEventMethod: buttonLeftEventMethod,
+          buttonRightText: "确定",
+          buttonRightEventMethod: buttonRightEventMethod
+      }
+      VHPF.ui.showDialog(param)
+      
+    })
+    $('#showLoading').click(function(){
+      VHPF.ui.showLoading()
+      setTimeout(function(){
+        VHPF.ui.hideLoading()
+      },5000)
+    })
+
+  })
+
+  
+</script>

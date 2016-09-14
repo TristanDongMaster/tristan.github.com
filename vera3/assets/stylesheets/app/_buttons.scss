@@ -1,0 +1,220 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+.btn {
+  display: inline-block;
+  padding: 0;
+  margin-bottom: 0; // For input.btn
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  user-select: none;
+  width:100%;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  text-align:center;
+  background:$grey-light;
+  color:#fff;
+  font-size:0.18rem;
+  border-radius:0.03rem;
+  transition: background 1s;
+
+  &,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+
+  &:hover,
+  &.focus {
+    text-decoration: none;
+    @include tab-focus;
+  }
+
+  &.visited {
+    color: #fff;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+    opacity:0.65;
+    box-shadow:none;
+  }
+
+  // [converter] extracted a& to a.btn
+}
+
+// a.btn {
+//   cursor: pointer;
+//   &.disabled,
+//   fieldset[disabled] & {
+//     pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+//   }
+  
+// }
+
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+.btn-default{
+  background:$grey-light;
+}
+
+.btn-disabled{
+  background:$grey-light;
+}
+
+.btn-red{
+  background:$brand-red;
+}
+.btn-box:active{
+    transform:scale(0.99); 
+    box-shadow:0px 0px 20px #FFF; 
+}
+
+.btn-loading{
+  position: relative;
+  height: 0.4rem;
+  width: 100%;
+  overflow: hidden;
+  
+  .btn-loading-wrap{
+    position: absolute;
+    top: -0.4rem;
+    left: 0px;
+    height: 0.8rem;
+    width: 100%;
+    line-height: 0.4rem;
+    transition: top 0.15s;
+    border-radius: 0.03rem;
+    .btn-loading-before{
+      position:absolute;
+      left: 0;
+      top: 0.4rem;
+      width: 100%;
+      height: 0.4rem;
+      border-radius: 0.03rem;
+      background: $brand-red;
+      transition: background 1s;
+    }
+    .btn-loading-after{
+      position:absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 0.4rem;
+      border-radius: 0.03rem;
+      background:$grey-light;
+    }
+    .btn-disabled-mask{
+      position:absolute;
+      left: 0;
+      top: 0.4rem;
+      width: 100%;
+      height: 0.4rem;
+      border-radius: 0.03rem;
+      background: transparent;
+      z-index: 100;
+      display: none;
+    }
+  }
+  .btn-loading-wrap-on{
+    top:0;
+  }
+  
+}
+.btn-disabled{
+  
+  .btn-loading-wrap{
+    .btn-loading-before{
+      background: $grey-light;
+    }
+    .btn-loading-after{
+      background:$grey-light;
+    }
+    .btn-disabled-mask{
+      display: block;
+      top: 0;
+    }
+  }
+  .btn-loading-wrap-on{
+    top:0;
+  }
+  
+}
+
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.btn-link {
+  font-weight: normal;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &.active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+    box-shadow:none;
+  }
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    background-color: transparent;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+
+
+
+
+// Block button
+// --------------------------------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}

@@ -1,0 +1,33 @@
+.checkbox-item{
+	height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.18rem;
+}
+.checkbox{
+	display:inline-block;
+	position:relative;
+	width:0.18rem;
+	height:0.18rem;
+	border: 1px solid #ccc;
+	background:#fff;
+	text-align:center;
+	line-height:0.18rem;
+	font-size:0.14rem;
+	color: $grey-top;
+}
+
+.checkkbox-default{
+	color: $grey-top;
+}
+
+.checkkbox-selected{
+	color: $brand-green;
+}
+
+.checkkbox-disabled{
+	background:$grey-light;
+	color: $grey-light;
+}
+.checkbox + lable{
+	font-size:0.14rem;
+}
