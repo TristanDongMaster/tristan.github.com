@@ -1,0 +1,67 @@
+<div class="container">
+	<p class="demo-p">toast </p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic" id="toast">点我 toast</button>
+		</div>
+	</div>
+
+	<p class="demo-p">loading,6s消失 </p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic" id="loading">点我 loading</button>
+		</div>
+	</div>
+
+	<p class="demo-p">dialog,左右两个button </p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic" id="dialog1">点我 dialog</button>
+		</div>
+	</div>
+
+	<p class="demo-p">dialog,中间一个button </p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic" id="dialog2">点我 dialog</button>
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	$('#toast').click(function(){
+		VHPF.ui.showToast({
+			content: '修改密码成功'
+		})
+	})
+	$('#loading').click(function(){
+		VHPF.ui.showLoading()
+		var t = setTimeout(function(){
+			VHPF.ui.hideLoading()
+			clearTimeout(t)
+		},6000)
+	})
+	$('#dialog1').click(function(){
+		var param ={
+	        content: "为了你的账户安全，请先进行实名认证",
+	        buttonType: "BUTTON_TYPE_LEFTRIGHT",//BUTTON_TYPE_CENTER BUTTON_TYPE_LEFTRIGHT
+	        buttonLeftText: "取消",
+	        buttonLeftEventMethod: function(){},
+	        buttonRightText: "去认证",
+	        buttonRightEventMethod: function(){
+	        	alert("去认证")
+	        }
+	    }
+	    VHPF.ui.showDialog(param)
+	})
+	$('#dialog2').click(function(){
+		var param ={
+	        content: "网络异常，请重试",
+	        buttonType: "BUTTON_TYPE_CENTER",//BUTTON_TYPE_CENTER BUTTON_TYPE_LEFTRIGHT
+	        buttonCenterText: "取消",
+	        buttonCenterEventMethod: function(){}
+	    }
+	    VHPF.ui.showDialog(param)
+	})
+</script>

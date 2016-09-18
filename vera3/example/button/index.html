@@ -116,13 +116,18 @@
 <script type="text/javascript">
 	$(function(){
 		$('#J-btn-switch').click(function(){
-			var hasAttr  = typeof $('.J-btn-status').attr('disabled') == 'undefined'
-			console.log(hasAttr)
-			if(!hasAttr){
-				$('.J-btn-status').removeAttr('disabled')
+			var isDisabled  = vera.getButtonStatus({target:'.J-btn-status'})
+			if(isDisabled){
+				vera.setButtonStatus({
+					target: '.J-btn-status',
+					disabled: false
+				})
 			}
 			else{
-				$('.J-btn-status').attr('disabled','')
+				vera.setButtonStatus({
+					target: '.J-btn-status',
+					disabled: true
+				})
 			}
 		})
 	})
