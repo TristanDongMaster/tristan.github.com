@@ -52,11 +52,19 @@
 
 	var _button = __webpack_require__(17);
 
+	var _input = __webpack_require__(19);
+
+	var _toast = __webpack_require__(23);
+
+	var _halfModal = __webpack_require__(24);
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var vera = function () {
 	  function vera() {
 	    _classCallCheck(this, vera);
+
+	    (0, _input.inputDel)();
 	  }
 	  //button
 
@@ -70,6 +78,26 @@
 	    key: 'getButtonStatus',
 	    value: function getButtonStatus(param) {
 	      return (0, _button.getButtonStatus)(param);
+	    }
+	  }, {
+	    key: 'showToast',
+	    value: function showToast(param) {
+	      (0, _toast.showToast)(param);
+	    }
+	  }, {
+	    key: 'initToast',
+	    value: function initToast(param) {
+	      (0, _toast.initToast)(param);
+	    }
+	  }, {
+	    key: 'showHalfModal',
+	    value: function showHalfModal(param) {
+	      (0, _halfModal.showHalfModal)(param);
+	    }
+	  }, {
+	    key: 'initHalfModal',
+	    value: function initHalfModal(param) {
+	      (0, _halfModal.initHalfModal)(param);
 	    }
 	  }]);
 
@@ -121,7 +149,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"utf-8\";\n/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */\nhtml {\n  font-family: sans-serif;\n  -ms-text-size-adjust: 100%;\n  -webkit-text-size-adjust: 100%;\n}\nbody {\n  margin: 0;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n  display: block;\n}\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n  vertical-align: baseline;\n}\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n[hidden],\ntemplate {\n  display: none;\n}\na {\n  background-color: transparent;\n}\na:active,\na:hover {\n  outline: 0;\n}\nabbr[title] {\n  border-bottom: 1px dotted;\n}\nb,\nstrong {\n  font-weight: bold;\n}\ndfn {\n  font-style: italic;\n}\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\nmark {\n  background: #ff0;\n  color: #000;\n}\nsmall {\n  font-size: 80%;\n}\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\nsup {\n  top: -0.5em;\n}\nsub {\n  bottom: -0.25em;\n}\nimg {\n  border: 0;\n}\nsvg:not(:root) {\n  overflow: hidden;\n}\nfigure {\n  margin: 1em 40px;\n}\nhr {\n  box-sizing: content-box;\n  height: 0;\n}\npre {\n  overflow: auto;\n}\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  font-size: 1em;\n}\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit;\n  font: inherit;\n  margin: 0;\n}\nbutton {\n  overflow: visible;\n}\nbutton,\nselect {\n  text-transform: none;\n}\nbutton,\nhtml input[type=\"button\"],\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button;\n  cursor: pointer;\n}\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default;\n}\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n}\ninput {\n  line-height: normal;\n}\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  box-sizing: border-box;\n  padding: 0;\n}\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\ninput[type=\"search\"] {\n  -webkit-appearance: textfield;\n  box-sizing: content-box;\n}\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\nlegend {\n  border: 0;\n  padding: 0;\n}\ntextarea {\n  overflow: auto;\n}\noptgroup {\n  font-weight: bold;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\ntd,\nth {\n  padding: 0;\n}\n.flex {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -ms-box;\n  display: box;\n  display: flexbox;\n  display: -ms-flexbox;\n  display: flex;\n}\n.inline-flex {\n  display: -webkit-inline-box;\n  display: -moz-inline-box;\n  display: -ms-inline-box;\n  display: inline-box;\n  display: inline-flexbox;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n}\n.mixin-clearfix:before,\n.mixin-clearfix:after {\n  content: \" \";\n  display: table;\n}\n.mixin-clearfix:after {\n  clear: both;\n}\n.tab-focus {\n  outline-offset: -2px;\n}\n/*字体图标*/\n@font-face {\n  font-family: \"icomoon\";\n  src: url(" + __webpack_require__(12) + ");\n  /* IE9*/\n  src: url(" + __webpack_require__(12) + "?#iefix) format('embedded-opentype'),  url(" + __webpack_require__(13) + ") format('woff'),  url(" + __webpack_require__(14) + ") format('truetype'),  url(" + __webpack_require__(15) + "#iconfont) format('svg');\n  /* iOS 4.1- */\n  font-weight: normal;\n  font-style: normal;\n}\n[class^=\"icon-\"],\n[class*=\" icon-\"] {\n  font-family: 'icomoon';\n  speak: none;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.icon-chevron-left {\n  display: inline-block;\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n.icon-chevron-right {\n  display: inline-block;\n  -webkit-transform: rotate(0);\n          transform: rotate(0);\n}\n.icon-chevron-up {\n  display: inline-block;\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg);\n}\n.icon-chevron-down {\n  display: inline-block;\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n.icon-chevron:before {\n  content: \"\\EA02\";\n}\n.icon-arrow:before {\n  content: \"\\EA01\";\n}\n.icon-arrow-up {\n  display: inline-block;\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg);\n}\n.icon-arrow-left {\n  display: inline-block;\n  -webkit-transform: rotate(-180deg);\n          transform: rotate(-180deg);\n}\n.icon-arrow-down {\n  display: inline-block;\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n.icon-checks:before {\n  content: \"\\EA02\";\n}\n.icon-cross:before {\n  content: \"\\EA03\";\n}\n.icon-plus {\n  display: inline-block;\n  -webkit-transform: rotate(45deg);\n          transform: rotate(45deg);\n}\n.icon-delet:before {\n  content: \"\\EA04\";\n}\n.icon-notice:before {\n  content: \"\\EA05\";\n}\n.icon-radius:before {\n  content: \"\\EA06\";\n}\n.icon-refresh:before {\n  content: \"\\EA07\";\n}\n.icon-selected:before {\n  content: \"\\EA08\";\n}\n.icon-success:before {\n  content: \"\\EA09\";\n}\n.icon-tick:before {\n  content: \"\\EA0A\";\n}\n.icon-unselected:before {\n  content: \"\\EA0B\";\n}\n.icon-view:before {\n  content: \"\\EA0C\";\n}\n.icon-warn:before {\n  content: \"\\EA0D\";\n}\n.icon-card:before {\n  content: \"\\EA11\";\n}\n.icon-forget:before {\n  content: \"\\EA12\";\n}\n.icon-search:before {\n  content: \"\\EA13\";\n}\n.container {\n  width: 100%;\n  margin-right: auto;\n  margin-left: auto;\n  padding-left: 0;\n  padding-right: 0;\n}\n.container:before,\n.container:after {\n  content: \" \";\n  display: table;\n}\n.container:after {\n  clear: both;\n}\n.row {\n  width: 100%;\n  margin-right: auto;\n  margin-left: auto;\n  padding-left: 0;\n  padding-right: 0;\n}\n.row:before,\n.row:after {\n  content: \" \";\n  display: table;\n}\n.row:after {\n  clear: both;\n}\n.row-padding {\n  padding: 0 0.15rem;\n}\n.row-padding-default {\n  padding-top: 0.15rem;\n  padding-bottom: 0.15rem;\n}\n.col {\n  float: left;\n  position: relative;\n  min-height: 1px;\n  width: 100%;\n}\n.col:before,\n.col:after {\n  content: \" \";\n  display: table;\n}\n.col:after {\n  clear: both;\n}\n.col-10 {\n  width: 10%;\n}\n.col-20 {\n  width: 20%;\n}\n.col-25 {\n  width: 25%;\n}\n.col-30 {\n  width: 30%;\n}\n.col-33 {\n  width: 33.3333%;\n}\n.col-40 {\n  width: 40%;\n}\n.col-50 {\n  width: 50%;\n}\n.col-60 {\n  width: 60%;\n}\n.col-67 {\n  width: 66.6666%;\n}\n.col-70 {\n  width: 70%;\n}\n.col-75 {\n  width: 75%;\n}\n.col-80 {\n  width: 80%;\n}\n.col-90 {\n  width: 90%;\n}\n.clearfix:after {\n  content: \" \";\n  display: block;\n  height: 0;\n  clear: both;\n}\n.bg-white {\n  background: #fff;\n}\n.padding-h-10 {\n  padding-left: 0.1rem;\n  padding-right: 0.1rem;\n}\n.padding-h-15 {\n  padding-left: 0.15rem;\n  padding-right: 0.15rem;\n}\n.padding-h-20 {\n  padding-left: 0.2rem;\n  padding-right: 0.2rem;\n}\n.padding-h-25 {\n  padding-left: 0.25rem;\n  padding-right: 0.25rem;\n}\n.padding-h-30 {\n  padding-left: 0.3rem;\n  padding-right: 0.3rem;\n}\n.padding-h-left-null {\n  padding-left: 0;\n}\n.padding-h-right-null {\n  padding-right: 0;\n}\n.margin-v-10 {\n  margin-top: 0.1rem;\n  margin-bottom: 0.1rem;\n}\n.margin-v-15 {\n  margin-top: 0.15rem;\n  margin-bottom: 0.15rem;\n}\n.margin-v-20 {\n  margin-top: 0.20rem;\n  margin-bottom: 0.20rem;\n}\n.margin-v-25 {\n  margin-top: 0.25rem;\n  margin-bottom: 0.25rem;\n}\n.margin-v-30 {\n  margin-top: 0.30rem;\n  margin-bottom: 0.30rem;\n}\n.margin-v-40 {\n  margin-top: 0.40rem;\n  margin-bottom: 0.40rem;\n}\n.margin-v-50 {\n  margin-top: 0.50rem;\n  margin-bottom: 0.50rem;\n}\n.margin-v-top-null {\n  margin-top: 0;\n}\n.margin-v-bottom-null {\n  margin-bottom: 0;\n}\n.btn {\n  display: inline-block;\n  padding: 0;\n  margin-bottom: 0;\n  font-weight: normal;\n  vertical-align: middle;\n  -ms-touch-action: manipulation;\n      touch-action: manipulation;\n  cursor: pointer;\n  background-image: none;\n  border: 1px solid transparent;\n  white-space: nowrap;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  text-align: center;\n  color: #fff;\n  font-size: 0.18rem;\n  border-radius: 2px;\n  -webkit-transition: background 1s;\n  transition: background 1s;\n  padding: 0 0.28rem;\n}\n.btn,\n.btn.active {\n  outline: 0;\n  background-image: none;\n}\n.btn:hover,\n.btn.focus {\n  text-decoration: none;\n  @include tab-focus;\n}\n.btn.visited {\n  color: #fff;\n}\n.btn.disabled,\n.btn[disabled],\nfieldset[disabled] .btn {\n  box-shadow: none;\n}\n.btn-basic {\n  background: #E4007F;\n  height: 0.44rem;\n  font-size: 0.16rem;\n  line-height: 0.44rem;\n}\n.btn-basic.active,\n.btn-basic:hover,\n.btn-basic.focus {\n  background: #CB0673;\n}\n.btn-basic.disabled,\n.btn-basic[disabled],\nfieldset[disabled] .btn-basic {\n  background: #E0E0E0;\n  color: #999;\n}\n.btn-border {\n  background: #fff;\n  color: #E4007F;\n  border: 1px solid #E4007F;\n  height: 0.36rem;\n  line-height: 0.36rem;\n  font-size: 0.14rem;\n}\n.btn-border.active,\n.btn-border:hover,\n.btn-border.focus {\n  color: #F49BCD;\n  border: 1px solid #F49BCD;\n}\n.btn-border.disabled,\n.btn-border[disabled],\nfieldset[disabled] .btn-border {\n  color: #C8C7CC;\n  border: 1px solid #C8C7CC;\n}\n.btn-border-grey {\n  background: #fff;\n  color: #585C64;\n  border: 1px solid #585C64;\n}\n.btn-border-grey.active,\n.btn-border-grey:hover,\n.btn-border-grey.focus {\n  color: #BCBEC1;\n  border: 1px solid #BCBEC1;\n}\n.btn-border-grey.disabled,\n.btn-border-grey[disabled],\nfieldset[disabled] .btn-border-grey {\n  color: #DBDBDF;\n  border: 1px solid #DBDBDF;\n}\n.btn-small {\n  height: 0.3rem;\n  line-height: 0.3rem;\n  font-size: 0.12rem;\n}\n.btn-mini {\n  height: 0.24rem;\n  line-height: 0.24rem;\n  font-size: 0.12rem;\n}\n.btn-full {\n  width: 100%;\n}\n.btn-link {\n  font-weight: normal;\n  border-radius: 0;\n}\n.btn-link,\n.btn-link:active,\n.btn-link.active,\n.btn-link[disabled],\nfieldset[disabled] .btn-link {\n  background-color: transparent;\n  box-shadow: none;\n}\n.btn-link,\n.btn-link:hover,\n.btn-link:focus,\n.btn-link:active {\n  border-color: transparent;\n}\n.btn-link:hover,\n.btn-link:focus {\n  text-decoration: underline;\n  background-color: transparent;\n}\n.btn-link[disabled]:hover,\nfieldset[disabled] .btn-link:hover,\n.btn-link[disabled]:focus,\nfieldset[disabled] .btn-link:focus {\n  text-decoration: none;\n}\n[role=\"button\"] {\n  cursor: pointer;\n}\ndiv,\ninput {\n  box-sizing: border-box;\n}\nhtml {\n  -webkit-text-size-adjust: 100%;\n      -ms-text-size-adjust: 100%;\n          text-size-adjust: 100%;\n  font-size: 625%;\n}\n", ""]);
+	exports.push([module.id, "@charset \"utf-8\";\n/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */\nhtml {\n  font-family: sans-serif;\n  -ms-text-size-adjust: 100%;\n  -webkit-text-size-adjust: 100%;\n}\nbody {\n  margin: 0;\n}\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection,\nsummary {\n  display: block;\n}\naudio,\ncanvas,\nprogress,\nvideo {\n  display: inline-block;\n  vertical-align: baseline;\n}\naudio:not([controls]) {\n  display: none;\n  height: 0;\n}\n[hidden],\ntemplate {\n  display: none;\n}\na {\n  background-color: transparent;\n}\na:active,\na:hover {\n  outline: 0;\n}\nabbr[title] {\n  border-bottom: 1px dotted;\n}\nb,\nstrong {\n  font-weight: bold;\n}\ndfn {\n  font-style: italic;\n}\nh1 {\n  font-size: 2em;\n  margin: 0.67em 0;\n}\nmark {\n  background: #ff0;\n  color: #000;\n}\nsmall {\n  font-size: 80%;\n}\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\nsup {\n  top: -0.5em;\n}\nsub {\n  bottom: -0.25em;\n}\nimg {\n  border: 0;\n}\nsvg:not(:root) {\n  overflow: hidden;\n}\nfigure {\n  margin: 1em 40px;\n}\nhr {\n  box-sizing: content-box;\n  height: 0;\n}\npre {\n  overflow: auto;\n}\ncode,\nkbd,\npre,\nsamp {\n  font-family: monospace, monospace;\n  font-size: 1em;\n}\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  color: inherit;\n  font: inherit;\n  margin: 0;\n}\nbutton {\n  overflow: visible;\n}\nbutton,\nselect {\n  text-transform: none;\n}\nbutton,\nhtml input[type=\"button\"],\ninput[type=\"reset\"],\ninput[type=\"submit\"] {\n  -webkit-appearance: button;\n  cursor: pointer;\n}\nbutton[disabled],\nhtml input[disabled] {\n  cursor: default;\n}\nbutton::-moz-focus-inner,\ninput::-moz-focus-inner {\n  border: 0;\n  padding: 0;\n}\ninput {\n  line-height: normal;\n}\ninput[type=\"checkbox\"],\ninput[type=\"radio\"] {\n  box-sizing: border-box;\n  padding: 0;\n}\ninput[type=\"number\"]::-webkit-inner-spin-button,\ninput[type=\"number\"]::-webkit-outer-spin-button {\n  height: auto;\n}\ninput[type=\"search\"] {\n  -webkit-appearance: textfield;\n  box-sizing: content-box;\n}\ninput[type=\"search\"]::-webkit-search-cancel-button,\ninput[type=\"search\"]::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\nfieldset {\n  border: 1px solid #c0c0c0;\n  margin: 0 2px;\n  padding: 0.35em 0.625em 0.75em;\n}\nlegend {\n  border: 0;\n  padding: 0;\n}\ntextarea {\n  overflow: auto;\n}\noptgroup {\n  font-weight: bold;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\ntd,\nth {\n  padding: 0;\n}\n.flex {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -ms-box;\n  display: box;\n  display: flexbox;\n  display: -ms-flexbox;\n  display: flex;\n}\n.inline-flex {\n  display: -webkit-inline-box;\n  display: -moz-inline-box;\n  display: -ms-inline-box;\n  display: inline-box;\n  display: inline-flexbox;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n}\n.mixin-clearfix:before,\n.mixin-clearfix:after {\n  content: \" \";\n  display: table;\n}\n.mixin-clearfix:after {\n  clear: both;\n}\n.tab-focus {\n  outline-offset: -2px;\n}\n/*字体图标*/\n@font-face {\n  font-family: \"icomoon\";\n  src: url(" + __webpack_require__(12) + ");\n  /* IE9*/\n  src: url(" + __webpack_require__(12) + "?#iefix) format('embedded-opentype'),  url(" + __webpack_require__(13) + ") format('woff'),  url(" + __webpack_require__(14) + ") format('truetype'),  url(" + __webpack_require__(15) + "#iconfont) format('svg');\n  /* iOS 4.1- */\n  font-weight: normal;\n  font-style: normal;\n}\n[class^=\"icon-\"],\n[class*=\" icon-\"] {\n  font-family: 'icomoon';\n  speak: none;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n  /* Better Font Rendering =========== */\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.icon-chevron-left {\n  display: inline-block;\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n.icon-chevron-right {\n  display: inline-block;\n  -webkit-transform: rotate(0);\n          transform: rotate(0);\n}\n.icon-chevron-up {\n  display: inline-block;\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg);\n}\n.icon-chevron-down {\n  display: inline-block;\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n.icon-chevron:before {\n  content: \"\\EA02\";\n}\n.icon-arrow:before {\n  content: \"\\EA01\";\n}\n.icon-arrow-up {\n  display: inline-block;\n  -webkit-transform: rotate(-90deg);\n          transform: rotate(-90deg);\n}\n.icon-arrow-left {\n  display: inline-block;\n  -webkit-transform: rotate(-180deg);\n          transform: rotate(-180deg);\n}\n.icon-arrow-down {\n  display: inline-block;\n  -webkit-transform: rotate(90deg);\n          transform: rotate(90deg);\n}\n.icon-checks:before {\n  content: \"\\EA02\";\n}\n.icon-cross:before {\n  content: \"\\EA03\";\n}\n.icon-plus {\n  display: inline-block;\n  -webkit-transform: rotate(45deg);\n          transform: rotate(45deg);\n}\n.icon-delet:before {\n  content: \"\\EA04\";\n}\n.icon-notice:before {\n  content: \"\\EA05\";\n}\n.icon-radius:before {\n  content: \"\\EA06\";\n}\n.icon-refresh:before {\n  content: \"\\EA07\";\n}\n.icon-selected:before {\n  content: \"\\EA08\";\n}\n.icon-success:before {\n  content: \"\\EA09\";\n}\n.icon-tick:before {\n  content: \"\\EA0A\";\n}\n.icon-unselected:before {\n  content: \"\\EA0B\";\n}\n.icon-view:before {\n  content: \"\\EA0C\";\n}\n.icon-warn:before {\n  content: \"\\EA0D\";\n}\n.icon-card:before {\n  content: \"\\EA11\";\n}\n.icon-forget:before {\n  content: \"\\EA12\";\n}\n.icon-search:before {\n  content: \"\\EA13\";\n}\n.hide {\n  display: none;\n}\n.hide-visibility {\n  visibility: hidden!important;\n}\n.show-visibility {\n  visibility: visible!important;\n}\n.container {\n  width: 100%;\n  margin-right: auto;\n  margin-left: auto;\n  padding-left: 0;\n  padding-right: 0;\n  font-size: 0.16rem;\n}\n.container:before,\n.container:after {\n  content: \" \";\n  display: table;\n}\n.container:after {\n  clear: both;\n}\n.row {\n  width: 100%;\n  margin-right: auto;\n  margin-left: auto;\n  padding-left: 0;\n  padding-right: 0;\n}\n.row:before,\n.row:after {\n  content: \" \";\n  display: table;\n}\n.row:after {\n  clear: both;\n}\n.row-padding {\n  padding: 0 0.15rem;\n}\n.row-padding-default {\n  padding-top: 0.15rem;\n  padding-bottom: 0.15rem;\n}\n.col {\n  float: left;\n  position: relative;\n  min-height: 1px;\n  width: 100%;\n}\n.col:before,\n.col:after {\n  content: \" \";\n  display: table;\n}\n.col:after {\n  clear: both;\n}\n.col-10 {\n  width: 10%;\n}\n.col-20 {\n  width: 20%;\n}\n.col-25 {\n  width: 25%;\n}\n.col-30 {\n  width: 30%;\n}\n.col-33 {\n  width: 33.3333%;\n}\n.col-40 {\n  width: 40%;\n}\n.col-50 {\n  width: 50%;\n}\n.col-60 {\n  width: 60%;\n}\n.col-67 {\n  width: 66.6666%;\n}\n.col-70 {\n  width: 70%;\n}\n.col-75 {\n  width: 75%;\n}\n.col-80 {\n  width: 80%;\n}\n.col-90 {\n  width: 90%;\n}\n.clearfix:after {\n  content: \" \";\n  display: block;\n  height: 0;\n  clear: both;\n}\n.bg-white {\n  background: #fff;\n}\n.padding-h-10 {\n  padding-left: 0.1rem;\n  padding-right: 0.1rem;\n}\n.padding-h-15 {\n  padding-left: 0.15rem;\n  padding-right: 0.15rem;\n}\n.padding-h-20 {\n  padding-left: 0.2rem;\n  padding-right: 0.2rem;\n}\n.padding-h-25 {\n  padding-left: 0.25rem;\n  padding-right: 0.25rem;\n}\n.padding-h-30 {\n  padding-left: 0.3rem;\n  padding-right: 0.3rem;\n}\n.padding-h-left-null {\n  padding-left: 0;\n}\n.padding-h-right-null {\n  padding-right: 0;\n}\n.margin-v-10 {\n  margin-top: 0.1rem;\n  margin-bottom: 0.1rem;\n}\n.margin-v-15 {\n  margin-top: 0.15rem;\n  margin-bottom: 0.15rem;\n}\n.margin-v-20 {\n  margin-top: 0.20rem;\n  margin-bottom: 0.20rem;\n}\n.margin-v-25 {\n  margin-top: 0.25rem;\n  margin-bottom: 0.25rem;\n}\n.margin-v-30 {\n  margin-top: 0.30rem;\n  margin-bottom: 0.30rem;\n}\n.margin-v-40 {\n  margin-top: 0.40rem;\n  margin-bottom: 0.40rem;\n}\n.margin-v-50 {\n  margin-top: 0.50rem;\n  margin-bottom: 0.50rem;\n}\n.margin-v-top-null {\n  margin-top: 0;\n}\n.margin-v-bottom-null {\n  margin-bottom: 0;\n}\n.btn {\n  display: inline-block;\n  padding: 0;\n  margin-bottom: 0;\n  font-weight: normal;\n  vertical-align: middle;\n  -ms-touch-action: manipulation;\n      touch-action: manipulation;\n  cursor: pointer;\n  background-image: none;\n  border: 1px solid transparent;\n  white-space: nowrap;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  text-align: center;\n  color: #fff;\n  font-size: 0.18rem;\n  border-radius: 2px;\n  -webkit-transition: background 1s;\n  transition: background 1s;\n  padding: 0 0.28rem;\n}\n.btn,\n.btn.active {\n  outline: 0;\n  background-image: none;\n}\n.btn:hover,\n.btn.focus {\n  text-decoration: none;\n  @include tab-focus;\n}\n.btn.visited {\n  color: #fff;\n}\n.btn.disabled,\n.btn[disabled],\nfieldset[disabled] .btn {\n  box-shadow: none;\n}\n.btn-basic {\n  background: #E4007F;\n  height: 0.44rem;\n  font-size: 0.16rem;\n  line-height: 0.44rem;\n}\n.btn-basic.active,\n.btn-basic:hover,\n.btn-basic.focus {\n  background: #CB0673;\n}\n.btn-basic.disabled,\n.btn-basic[disabled],\nfieldset[disabled] .btn-basic {\n  background: #E0E0E0;\n  color: #999;\n}\n.btn-border {\n  background: #fff;\n  color: #E4007F;\n  border: 1px solid #E4007F;\n  height: 0.36rem;\n  line-height: 0.36rem;\n  font-size: 0.14rem;\n}\n.btn-border.active,\n.btn-border:hover,\n.btn-border.focus {\n  color: #F49BCD;\n  border: 1px solid #F49BCD;\n}\n.btn-border.disabled,\n.btn-border[disabled],\nfieldset[disabled] .btn-border {\n  color: #C8C7CC;\n  border: 1px solid #C8C7CC;\n}\n.btn-border-grey {\n  background: #fff;\n  color: #585C64;\n  border: 1px solid #585C64;\n}\n.btn-border-grey.active,\n.btn-border-grey:hover,\n.btn-border-grey.focus {\n  color: #BCBEC1;\n  border: 1px solid #BCBEC1;\n}\n.btn-border-grey.disabled,\n.btn-border-grey[disabled],\nfieldset[disabled] .btn-border-grey {\n  color: #DBDBDF;\n  border: 1px solid #DBDBDF;\n}\n.btn-small {\n  height: 0.3rem;\n  line-height: 0.3rem;\n  font-size: 0.12rem;\n}\n.btn-mini {\n  height: 0.24rem;\n  line-height: 0.24rem;\n  font-size: 0.12rem;\n}\n.btn-full {\n  width: 100%;\n}\n.btn-link {\n  font-weight: normal;\n  border-radius: 0;\n}\n.btn-link,\n.btn-link:active,\n.btn-link.active,\n.btn-link[disabled],\nfieldset[disabled] .btn-link {\n  background-color: transparent;\n  box-shadow: none;\n}\n.btn-link,\n.btn-link:hover,\n.btn-link:focus,\n.btn-link:active {\n  border-color: transparent;\n}\n.btn-link:hover,\n.btn-link:focus {\n  text-decoration: underline;\n  background-color: transparent;\n}\n.btn-link[disabled]:hover,\nfieldset[disabled] .btn-link:hover,\n.btn-link[disabled]:focus,\nfieldset[disabled] .btn-link:focus {\n  text-decoration: none;\n}\n.input-wrap {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  height: 0.53rem;\n  font-size: 0.16rem;\n  background: #fff;\n  padding: 0 0.15rem;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n.input-label {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n  height: 100%;\n  width: 0.65rem;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #585c64;\n  margin-right: 0.2rem;\n}\n.input-holder {\n  -webkit-box-flex: 1;\n      -ms-flex: 1 1 auto;\n          flex: 1 1 auto;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n              -ms-grid-row-align: center;\n          align-items: center;\n  height: 100%;\n}\n.input-holder input {\n  width: 100%;\n  height: 100%;\n  border: none;\n  background: #fff;\n  -webkit-transition: background 1s,color 1s;\n  transition: background 1s,color 1s;\n  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);\n  -webkit-appearance: none;\n  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);\n  -webkit-tap-highlight-color: transparent;\n  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;\n  outline: none !important;\n  color: #222;\n}\n.input-holder ::-webkit-input-placeholder {\n  color: #ccc;\n}\n.input-holder :-moz-placeholder {\n  color: #ccc;\n}\n.input-holder ::-moz-placeholder {\n  color: #ccc;\n}\n.input-holder :-ms-input-placeholder {\n  color: #ccc;\n}\n.input-del {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  font-size: 0.18rem;\n  height: 100%;\n  width: 0.2rem;\n  color: #ccc;\n  visibility: hidden;\n}\n.input-icon {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 auto;\n          flex: 0 0 auto;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  font-size: 0.24rem;\n  height: 100%;\n  width: 0.2rem;\n  color: #222;\n  margin-left: 0.2rem;\n}\n.toast-overlay {\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  height: 100%;\n  width: 100%;\n  z-index: 1001;\n  -webkit-transform: translateZ(0);\n          transform: translateZ(0);\n  opacity: 1;\n  visibility: visible;\n  -webkit-transition: opacity 0.3s linear;\n  transition: opacity 0.3s linear;\n}\n.toast-overlay.hide {\n  visibility: hidden;\n  opacity: 0;\n  -webkit-transition: visibility 0.3s, opacity 0.3s linear;\n  transition: visibility 0.3s, opacity 0.3s linear;\n}\n.toast-overlay .toast-container {\n  position: absolute;\n  width: 80%;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  background: white;\n  border-radius: 0.05rem;\n  box-shadow: 0.05rem 0.05rem 0.05rem #D8D8D8;\n}\n.toast-overlay .toast-content {\n  background: white;\n  position: relative;\n  width: 100%;\n  text-align: left;\n  border-radius: 0.05rem;\n}\n.toast-overlay .toast-body {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -ms-box;\n  display: box;\n  display: flexbox;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  overflow-y: auto;\n  -webkit-overflow-scrolling: touch;\n  max-height: 3rem;\n  color: #222;\n  margin: 0;\n  min-height: 0.8rem;\n  font-size: 0.16rem;\n}\n.toast-overlay .toast-header {\n  padding-top: 0.2rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 0.16rem;\n  color: #222;\n}\n.toast-overlay .toast-action {\n  text-align: center;\n  text-decoration: none;\n  box-sizing: border-box;\n  height: 0.5rem;\n  font-size: 0.16rem;\n  line-height: 0.5rem;\n  color: #0099ff;\n  border-radius: 0 0 0.05rem 0.05rem;\n}\n.toast-overlay .toast-text {\n  text-align: center;\n  padding: 0.18rem;\n}\n.toast-overlay .toast-footer {\n  overflow: hidden;\n  border-radius: 0 0 0.05rem 0.05rem;\n  border-top: 0.01rem solid #D8D8D8;\n}\n.toast-overlay .toast-footer .action-right {\n  border-radius: 0 0 0.05rem 0;\n  font-weight: bold;\n  border-left: 0.01rem solid #D8D8D8;\n}\n.half-modal-overlay {\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  height: 100%;\n  width: 100%;\n  z-index: 1001;\n  -webkit-transform: translateZ(0);\n          transform: translateZ(0);\n  opacity: 1;\n  visibility: visible;\n  -webkit-transition: opacity 0.3s linear;\n  transition: opacity 0.3s linear;\n  background: rgba(0, 0, 0, 0.6);\n}\n.half-modal-overlay.hide {\n  visibility: hidden;\n  opacity: 0;\n  -webkit-transition: visibility .3s, opacity .3s linear;\n  transition: visibility .3s, opacity .3s linear;\n}\n.half-modal-overlay .modal-container {\n  position: fixed;\n  width: 100%;\n  bottom: 0;\n  background: white;\n  margin-bottom: 0px;\n  -webkit-animation: halfToBottom .3s;\n          animation: halfToBottom .3s;\n}\n.half-modal-overlay .modal-container.animateHide {\n  margin-bottom: -70vh;\n  -webkit-animation: halfToTop .3s;\n          animation: halfToTop .3s;\n}\n@-webkit-keyframes halfToTop {\n  0% {\n    margin-bottom: 0px;\n  }\n  100% {\n    margin-bottom: -60vh;\n  }\n}\n@keyframes halfToTop {\n  0% {\n    margin-bottom: 0px;\n  }\n  100% {\n    margin-bottom: -60vh;\n  }\n}\n@-webkit-keyframes halfToBottom {\n  0% {\n    margin-bottom: -70vh;\n  }\n  100% {\n    margin-bottom: 0px;\n  }\n}\n@keyframes halfToBottom {\n  0% {\n    margin-bottom: -70vh;\n  }\n  100% {\n    margin-bottom: 0px;\n  }\n}\n.half-modal-overlay .modal-body {\n  background: #F3F4F5;\n  overflow-y: auto;\n  -webkit-overflow-scrolling: touch;\n  max-height: 3rem;\n  color: #222;\n  margin: 0;\n  min-height: 0.8rem;\n  max-height: 40vh;\n  font-size: 0.16rem;\n}\n.half-modal-overlay .modal-header {\n  font-weight: bold;\n  text-align: center;\n  font-size: 0.18rem;\n  color: #222;\n  display: -webkit-box;\n  display: -moz-box;\n  display: -ms-box;\n  display: box;\n  display: flexbox;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  padding: 0.1rem 0.05rem;\n}\n.half-modal-overlay .header-text {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n}\n.half-modal-overlay .header-close,\n.half-modal-overlay .header-icon {\n  width: 0.2rem;\n  padding: 0 0.1rem;\n}\n.half-modal-overlay .sub-title {\n  font-size: 0.12rem;\n  color: #CCC;\n  margin-top: 0.04rem;\n}\n.half-modal-overlay .title {\n  display: inherit;\n  font-size: 0.16rem;\n  color: #222;\n  font-weight: bold;\n}\n.half-modal-overlay .modal-text {\n  text-align: center;\n  padding: 0.18rem;\n}\n.half-modal-overlay .modal-footer {\n  overflow: hidden;\n  border-top: 0.01rem solid #D8D8D8;\n  padding: 0.1rem 0.2rem;\n  font-size: 0.12rem;\n}\n[role=\"button\"] {\n  cursor: pointer;\n}\ndiv,\ninput {\n  box-sizing: border-box;\n}\nhtml {\n  -webkit-text-size-adjust: 100%;\n      -ms-text-size-adjust: 100%;\n          text-size-adjust: 100%;\n  font-size: 625%;\n}\n", ""]);
 
 	// exports
 
@@ -491,6 +519,217 @@
 	*/
 	function getButtonStatus(param) {
 		return typeof $(param.target).attr('disabled') !== 'undefined';
+	}
+
+/***/ },
+/* 18 */,
+/* 19 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.inputDel = inputDel;
+	function inputDel() {
+		$(document).on('focus', '.input-wrap input', function (e) {
+			var target = e.target;
+			$(target).parents('.input-wrap').find('.input-del').addClass('show-visibility');
+		});
+		$(document).on('blur', '.input-wrap input', function (e) {
+			var target = e.target;
+			var t = setTimeout(function () {
+				$(target).parents('.input-wrap').find('.input-del').removeClass('show-visibility');
+				clearTimeout(t);
+			}, 600);
+		});
+		$(document).on('click', '.input-del', function (e) {
+			var target = e.target;
+			$(target).parents('.input-wrap').find('input').val('');
+		});
+	}
+
+/***/ },
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.showToast = showToast;
+	exports.initToast = initToast;
+	/***
+		param: {
+			target: '#myBtnId', // '.myBtnId'
+			isShow: false / true
+		}
+		return void
+	*/
+	function showToast(param) {
+		if (param.isShow) {
+			$(param.target).removeClass('hide');
+		} else {
+			$(param.target).addClass('hide');
+		}
+	}
+
+	/***
+		param: {
+			target: '#myBtnId', // '.myBtnId'
+			isShow: false / true,
+			title:'标题',
+			content:'内容',
+			buttonType: "BUTTON_TYPE_LEFTRIGHT",//BUTTON_TYPE_CENTER BUTTON_TYPE_LEFTRIGHT
+	        buttonLeftText: "取消",
+	        buttonLeftEventMethod: function(){},
+	        buttonRightText: "去认证",
+	        buttonRightEventMethod: function(){
+	        	alert("去认证")
+	        },
+	        //buttonCenterText: "取消",
+		    //buttonCenterEventMethod: function(){}
+		}
+		return void
+	*/
+	function initToast(param) {
+		if (param && param.target) {
+			var $target = $(param.target);
+
+			if (param.title != '' && param.title != undefined) {
+				$target.find('.toast-header').html(param.title);
+			} else {
+				$target.find('.toast-header').remove();
+			}
+
+			if (param.content != '' && param.content != undefined) {
+				if (param.isHTML) {
+					$target.find('.toast-body').html(param.content);
+				} else {
+					$target.find('.toast-text').html(param.content);
+				}
+			}
+
+			if (param.buttonLeftText != '' && param.buttonLeftText != undefined) {
+				$target.find('.action-left').html(param.buttonLeftText);
+			}
+
+			if (param.buttonRightText != '' && param.buttonRightText != undefined) {
+				$target.find('.action-right').html(param.buttonRightText);
+			}
+
+			if (param.buttonCenterText != '' && param.buttonCenterText != undefined) {
+				$target.find('.toast-action').html(param.buttonCenterText);
+			}
+
+			if (typeof param.buttonLeftEventMethod == "function") {
+				$target.on('click', '.action-left', param.buttonLeftEventMethod);
+			}
+			if (typeof param.buttonRightEventMethod == "function") {
+				$target.on('click', '.action-right', param.buttonRightEventMethod);
+			}
+			if (typeof param.buttonCenterEventMethod == "function") {
+				$target.on('click', '.toast-action', param.buttonCenterEventMethod);
+			}
+			if (param.isShow) {
+				$target.removeClass('hide');
+			}
+		}
+	}
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.showHalfModal = showHalfModal;
+	exports.initHalfModal = initHalfModal;
+	/***
+		param: {
+			target: '#myBtnId', // '.myBtnId'
+			isShow: false / true
+		}
+		return void
+	*/
+	function showHalfModal(param) {
+		if (param.isShow) {
+			$(param.target).removeClass('hide');
+			$(param.target).find(".modal-container").removeClass('animateHide');
+		} else {
+			$(param.target).addClass('hide');
+			$(param.target).find(".modal-container").addClass('animateHide');
+		}
+	}
+
+	/***
+		param: {
+			target: '#myBtnId', // '.myBtnId'
+			isShow: false / true,
+			title:'标题',
+			subTitle:'标题',
+			content:'内容',
+	        buttonText: "取消",
+		    buttonEventMethod: function(){}
+		}
+		return void
+	*/
+	function initHalfModal(param) {
+		if (param && param.target) {
+			var $target = $(param.target);
+
+			if (param.title != '' && param.title != undefined) {
+				$target.find('.modal-header  .title').html(param.title);
+			} else {
+				$target.find('.modal-header ').remove();
+			}
+
+			if (param.subTitle != '' && param.subTitle != undefined) {
+				$target.find('.modal-header  .sub-title').html(param.subTitle);
+			}
+
+			if (param.content != '' && param.content != undefined) {
+				if (param.isHTML) {
+					$target.find('.modal-body').html(param.content);
+				} else {
+					$target.find('.modal-text').html(param.content);
+				}
+			}
+
+			if (param.buttonText != '' && param.buttonText != undefined) {
+				$target.find('.modal-footer .btn').text(param.buttonText);
+			} else {
+				$target.find('.modal-footer').remove();
+			}
+
+			if (typeof param.buttonEventMethod == "function") {
+				$target.on('click', '.modal-footer .btn', param.buttonEventMethod);
+			} else {
+				$target.find('.modal-footer').remove();
+			}
+
+			if (typeof param.closeEventMethod == "function") {
+				$target.on('click', '.modal-header .header-close', param.closeEventMethod);
+			}
+
+			if (typeof param.forgetEventMethod == "function") {
+				$target.on('click', '.modal-header .header-icon', param.forgetEventMethod);
+			} else {
+				$target.find('.modal-header .header-icon a').remove();
+			}
+
+			if (param.isShow) {
+				vera.showHalfModal({ target: param.target, isShow: true });
+			}
+		}
 	}
 
 /***/ }
