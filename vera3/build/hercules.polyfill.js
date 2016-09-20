@@ -64,7 +64,7 @@
 
 	var _dialog = __webpack_require__(9);
 
-	var _loading = __webpack_require__(12);
+	var _loading = __webpack_require__(13);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -595,64 +595,156 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     弹出App Dialog提示
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     param:{
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         content: "",
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         buttonType: "",
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         buttonCenterText: "",
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         buttonCenterEventMethod: "",
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         buttonLeftText: "",
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         buttonLeftEventMethod: "",
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         buttonRightText: "",
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         buttonRightEventMethod: ""
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     BUTTON_TYPE_CENTER: 中间一个按钮类型
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     BUTTON_TYPE_LEFTRIGHT: 左右两边都存在按钮类型
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     **/
+
 	exports.showDialog = showDialog;
+	exports.hideDialog = hideDialog;
 
 	__webpack_require__(10);
 
+	var _index = __webpack_require__(12);
+
+	var _index2 = _interopRequireDefault(_index);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var VH5Dialog = function () {
+		function VH5Dialog() {
+			_classCallCheck(this, VH5Dialog);
+
+			this.initTemplate = this.initTemplate.bind(this);
+			this.showDialog = this.showDialog.bind(this);
+			this.initDialog = this.initDialog.bind(this);
+			this.hideDialog = this.hideDialog.bind(this);
+		}
+
+		_createClass(VH5Dialog, [{
+			key: 'initTemplate',
+			value: function initTemplate() {
+				var $target = document.querySelector('.vh5-dialog-overlay');
+				if ($target != undefined) {
+					$target.remove();
+				}
+				document.body.insertAdjacentHTML('beforeend', _index2.default);
+			}
+		}, {
+			key: 'showDialog',
+			value: function showDialog(param) {
+				this.initDialog(param);
+				setTimeout(function () {
+					$('.vh5-dialog-overlay').removeClass('hide');
+				}, 100);
+			}
+		}, {
+			key: 'hideDialog',
+			value: function hideDialog() {
+				$('.vh5-dialog-overlay').addClass('hide');
+			}
+		}, {
+			key: 'initDialog',
+			value: function initDialog(param) {
+				var _this = this;
+
+				this.initTemplate();
+				if (param) {
+					var $target = $('.vh5-dialog-overlay');
+
+					if (param.title != '' && param.title != undefined) {
+						$target.find('.dialog-header').html(param.title);
+					} else {
+						$target.find('.dialog-header').remove();
+					}
+
+					if (param.content != '' && param.content != undefined) {
+						if (param.isHTML) {
+							$target.find('.dialog-body').html(param.content);
+						} else {
+							$target.find('.dialog-text').html(param.content);
+						}
+					}
+
+					if (param.buttonLeftText != '' && param.buttonLeftText != undefined) {
+						$target.find('.action-left').html(param.buttonLeftText);
+					}
+
+					if (param.buttonRightText != '' && param.buttonRightText != undefined) {
+						$target.find('.action-right').html(param.buttonRightText);
+					}
+
+					if (param.buttonCenterText != '' && param.buttonCenterText != undefined) {
+						$target.find('.dialog-action').html(param.buttonCenterText);
+					}
+
+					if (typeof param.buttonLeftEventMethod == "function") {
+						$target.on('click', '.action-left', function () {
+							param.buttonLeftEventMethod;
+							_this.hideDialog();
+						});
+					}
+					if (typeof param.buttonRightEventMethod == "function") {
+						$target.on('click', '.action-right', function () {
+							param.buttonRightEventMethod;
+							_this.hideDialog();
+						});
+					}
+					if (typeof param.buttonCenterEventMethod == "function") {
+						$target.find('.action-right').remove();
+						$target.find('.dialog-action').removeClass('col-50');
+						$target.on('click', '.dialog-action', function () {
+							param.buttonCenterEventMethod;
+							_this.hideDialog();
+						});
+					}
+					if (typeof param.buttonLeftEventMethod != "function" && typeof param.buttonRightEventMethod != "function" && typeof param.buttonCenterEventMethod != "function") {
+						$target.find('.dialog-footer').remove();
+					}
+				}
+			}
+		}]);
+
+		return VH5Dialog;
+	}();
+
+	var vh5DialogObject = new VH5Dialog();
+
+	/***
+		param: {
+			title:'标题',
+			content:'内容',
+			buttonType: "BUTTON_TYPE_LEFTRIGHT",//BUTTON_TYPE_CENTER BUTTON_TYPE_LEFTRIGHT
+	        buttonLeftText: "取消",
+	        buttonLeftEventMethod: function(){},
+	        buttonRightText: "去认证",
+	        buttonRightEventMethod: function(){
+	        	alert("去认证")
+	        },
+	        //buttonCenterText: "取消",
+		    //buttonCenterEventMethod: function(){}
+		}
+		return void
+	*/
 	function showDialog(param) {
-		var temp = '\n\t\t<div class="vh5-mask">\n\t\t\t<div class="vh5-dialog">\n                <div class="vh5-dialog-conent">\n                     ' + getConTemp(param.content) + '\n                </div>\n                ' + getFoot(param) + '\n\t    \t</div>\n\t    </div>';
-		var div = document.createElement('div');
-		div.className = "vh5-mask-dialog";
-		div.innerHTML = temp;
-
-		document.body.appendChild(div);
-		window.VH5_DIALOG = {
-			hide: function hide(fn) {
-				var node = document.querySelectorAll('.vh5-mask-dialog');
-				console.log(node);
-				for (var i = 0; i < node.length; i++) {
-					console.log(node[i]);
-					document.body.removeChild(node[i]);
-				}
-				if (typeof fn === 'function') {
-					fn();
-				}
-			},
-			centerEvent: param.buttonCenterEventMethod,
-			leftEvent: param.buttonLeftEventMethod,
-			rightEvent: param.buttonRightEventMethod
-		};
-	} /**
-	  弹出App Dialog提示
-	  param:{
-	      content: "",
-	      buttonType: "",
-	      buttonCenterText: "",
-	      buttonCenterEventMethod: "",
-	      buttonLeftText: "",
-	      buttonLeftEventMethod: "",
-	      buttonRightText: "",
-	      buttonRightEventMethod: ""
-	  }
-	  BUTTON_TYPE_CENTER: 中间一个按钮类型
-	  BUTTON_TYPE_LEFTRIGHT: 左右两边都存在按钮类型
-	  **/
-
-	function getConTemp(content) {
-		if (content.length < 14) {
-			return '<br/><br/>' + content;
-		} else if (content.length < 25) {
-			return '<br/>' + content;
-		} else {
-			return content;
-		}
+		vh5DialogObject.showDialog(param);
 	}
-	function getFoot(param) {
-		if (param.buttonType === 'BUTTON_TYPE_CENTER') {
-			return '<div class="vh5-dialog-footer" >\n                    <a class="vh5-row vh5-dialog-action " onclick="VH5_DIALOG.hide(VH5_DIALOG.centerEvent)">' + param.buttonCenterText + '</a>\n                </div>';
-		} else {
-			return '<div class="vh5-dialog-footer" >\n                    <a class="vh5-row-half vh5-dialog-action vh5-dialog-action-left" onclick="VH5_DIALOG.hide(VH5_DIALOG.leftEvent)">' + param.buttonLeftText + '</a>\n                    <a class="vh5-row-half vh5-dialog-action vh5-dialog-action-right" onclick="VH5_DIALOG.hide(VH5_DIALOG.rightEvent)">' + param.buttonRightText + '</a>\n                </div>';
-		}
+	function hideDialog() {
+		vh5DialogObject.hideDialog();
 	}
 
 /***/ },
@@ -690,13 +782,19 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"utf-8\";\n.vh5-dialog {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  min-height: 120px;\n  width: 250px;\n  margin-left: -125px;\n  margin-top: -75px;\n  background: #fff;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  box-shadow: 1px 1px 12px #888888;\n  -webkit-animation: vh5-dialog 0.5s;\n          animation: vh5-dialog 0.5s;\n}\n@media screen and (max-width: 320px) {\n  .vh5-dialog {\n    width: 200px;\n    margin-left: -100px;\n  }\n}\n@-webkit-keyframes vh5-dialog {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes vh5-dialog {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n.vh5-dialog-conent {\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  padding: 10px 10px 45px 10px;\n  font-size: 14px;\n  color: #222;\n}\n.vh5-dialog-footer {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 40px;\n  line-height: 40px;\n  border-top: 1px solid #ddd;\n  box-sizing: border-box;\n  font-size: 16px;\n}\n.vh5-row {\n  width: 50%;\n  height: 100%;\n}\n.vh5-row-half {\n  float: left;\n  width: 50%;\n  height: 100%;\n}\n.vh5-dialog-action {\n  text-align: center;\n  color: #0099ff;\n  cursor: pointer;\n}\n.vh5-dialog-action-left {\n  border-right: 1px solid #ddd;\n  box-sizing: border-box;\n}\n", ""]);
+	exports.push([module.id, "@charset \"utf-8\";\n.flex {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -ms-box;\n  display: box;\n  display: flexbox;\n  display: -ms-flexbox;\n  display: flex;\n}\n.vh5-dialog-overlay {\n  position: fixed;\n  top: 0px;\n  left: 0px;\n  height: 100%;\n  width: 100%;\n  z-index: 1001;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n  visibility: visible;\n  -webkit-transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s cubic-bezier(0.68, -0.65, 0.27, 1.65);\n  transition: opacity 0.3s, visibility 0.3s, -webkit-transform 0.3s cubic-bezier(0.68, -0.65, 0.27, 1.65);\n  transition: opacity 0.3s, transform 0.3s cubic-bezier(0.68, -0.65, 0.27, 1.65), visibility 0.3s;\n  transition: opacity 0.3s, transform 0.3s cubic-bezier(0.68, -0.65, 0.27, 1.65), visibility 0.3s, -webkit-transform 0.3s cubic-bezier(0.68, -0.65, 0.27, 1.65);\n}\n.vh5-dialog-overlay.hide {\n  display: block;\n  visibility: hidden;\n  opacity: 0;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  -webkit-transition: visibility 0.3s, opacity 0.3s, -webkit-transform 0.3s cubic-bezier(0.68, -0.65, 0.27, 1.65);\n  transition: visibility 0.3s, opacity 0.3s, -webkit-transform 0.3s cubic-bezier(0.68, -0.65, 0.27, 1.65);\n  transition: visibility 0.3s, opacity 0.3s, transform 0.3s cubic-bezier(0.68, -0.65, 0.27, 1.65);\n  transition: visibility 0.3s, opacity 0.3s, transform 0.3s cubic-bezier(0.68, -0.65, 0.27, 1.65), -webkit-transform 0.3s cubic-bezier(0.68, -0.65, 0.27, 1.65);\n}\n.vh5-dialog-overlay .dialog-container {\n  position: absolute;\n  width: 80%;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  background: white;\n  border-radius: 0.05rem;\n  box-shadow: 0.05rem 0.05rem 0.05rem #D8D8D8;\n}\n.vh5-dialog-overlay .dialog-content {\n  background: white;\n  position: relative;\n  width: 100%;\n  text-align: left;\n  border-radius: 0.05rem;\n}\n.vh5-dialog-overlay .dialog-body {\n  display: -webkit-box;\n  display: -moz-box;\n  display: -ms-box;\n  display: box;\n  display: flexbox;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  overflow-y: auto;\n  -webkit-overflow-scrolling: touch;\n  max-height: 3rem;\n  color: #222;\n  margin: 0;\n  min-height: 0.8rem;\n  font-size: 0.14rem;\n}\n.vh5-dialog-overlay .dialog-header {\n  padding-top: 0.2rem;\n  font-weight: bold;\n  text-align: center;\n  font-size: 0.16rem;\n  color: #222;\n}\n.vh5-dialog-overlay .dialog-action {\n  text-align: center;\n  text-decoration: none;\n  box-sizing: border-box;\n  height: 0.5rem;\n  font-size: 0.16rem;\n  line-height: 0.5rem;\n  color: #0099ff;\n  border-radius: 0 0 0.05rem 0.05rem;\n}\n.vh5-dialog-overlay .dialog-text {\n  text-align: center;\n  padding: 0.18rem;\n}\n.vh5-dialog-overlay .dialog-footer {\n  overflow: hidden;\n  border-radius: 0 0 0.05rem 0.05rem;\n  border-top: 0.01rem solid #D8D8D8;\n}\n.vh5-dialog-overlay .dialog-footer .action-right {\n  border-radius: 0 0 0.05rem 0;\n  font-weight: bold;\n  border-left: 0.01rem solid #D8D8D8;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
 /* 12 */
+/***/ function(module, exports) {
+
+	module.exports = "<div class=\"vh5-dialog-overlay hide\" role=\"dialog\">\r\n\t<div class=\"dialog-container\">\r\n\t\t<div class=\"dialog-header \"></div>\r\n\t\t<div class=\"dialog-body\">\r\n\t\t\t<div class=\"dialog-text\">\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"dialog-footer\">\r\n\t\t\t<span class=\"col col-50 dialog-action action-left\"></span>\r\n\t\t\t<span class=\"col col-50 col dialog-action action-right\"></span>\r\n\t\t</div>\r\n\t</div>\r\n</div>";
+
+/***/ },
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -707,7 +805,7 @@
 	exports.showLoading = showLoading;
 	exports.hideLoading = hideLoading;
 
-	__webpack_require__(13);
+	__webpack_require__(14);
 
 	function showLoading() {
 	    var temp = '<div class="vh5-mask">\n    <div class="vh5-loading-box">\n        <div class="vh5-loading-bg">\n            <svg viewBox="0 0 50 50" class="vh5-loading">\n                <circle r="24" cx="25" cy="25" fill="none" stroke="#f0f0f0" stroke-width="2"/>\n                <text x="25" y="25" dy=".27em" fill="#dedede" class="vh5-loading-text">vip</text>\n            </svg>\n            <div class="vh5-loading-inner">\n                <svg viewBox="0 0 50 50" class="vh5-loading">\n                    <circle r="24" cx="25" cy="25" fill="none" stroke="#e4007f" stroke-linecap="round" stroke-width="2" class="vh5-loading-progress" id="J_loading_progress" >\n                    </circle>\n                </svg>\n            </div>\n        </div>\n    </div>\n</div>';
@@ -730,13 +828,13 @@
 	}
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(14);
+	var content = __webpack_require__(15);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(5)(content, {});
@@ -756,7 +854,7 @@
 	}
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
