@@ -1,21 +1,19 @@
 <div class="container">
-	<p class="demo-p">half modal 有标题,子标题，问号，按钮 </p>
+	<p class="demo-p">有标题,子标题，问号，按钮, 内容是HTML</p>
 	<div class="row margin-v-10">
 		<div class="col demo-col">
 			<button class="btn btn-basic" id="J-btn-switch">click</button>
 		</div>
 	</div>
 
-
-	<p class="demo-p">half modal 有标题,按钮，无问号,子标题 </p>
+	<p class="demo-p">有标题,按钮，无问号,子标题</p>
 	<div class="row margin-v-10">
 		<div class="col demo-col">
 			<button class="btn btn-basic" id="J-btn-switch1">click</button>
 		</div>
 	</div>
 
-
-	<p class="demo-p">half modal  有标题。子标题，问号，无按钮 </p>
+	<p class="demo-p">有标题。子标题，问号，无按钮</p>
 	<div class="row margin-v-10">
 		<div class="col demo-col">
 			<button class="btn btn-basic" id="J-btn-switch2">click</button>
@@ -24,148 +22,56 @@
 
 </div>
 
-<div class="half-modal-overlay hide"  id='half-modal1' role="half-modal">
-	<div class="modal-container animateHide">
-		<div class="modal-header ">
-			<span class="header-close">
-				<a > <i class="icon-cross "></i>
-				</a>
-			</span>
-			<span class="header-text">
-				<div class="title">
-				  
-				</div>
-				<div  class="sub-title"></div>
-			</span>
-			<span class="header-icon">
-				<a > <i class="icon-forget "></i>
-				</a>
-			</span>
-		</div>
-		<div class="modal-body">
-			<div class="modal-text">
-				
-			</div>
-		</div>
-		<div class="modal-footer">
-			<button class="btn btn-basic btn-full">俩字</button>
-		</div>
-	</div>
-</div>
-
-<div class="half-modal-overlay hide"  id='half-modal2' role="half-modal">
-	<div class="modal-container animateHide">
-		<div class="modal-header ">
-			<span class="header-close">
-				<a > <i class="icon-cross "></i>
-				</a>
-			</span>
-			<span class="header-text">
-				<div class="title"></div>
-				<div  class="sub-title"></div>
-			</span>
-			<span class="header-icon">
-				<a > <i class="icon-forget "></i>
-				</a>
-			</span>
-		</div>
-		<div class="modal-body">
-			<div class="modal-text">
-				
-			</div>
-		</div>
-		<div class="modal-footer">
-			<button class="btn btn-basic btn-full"></button>
-		</div>
-	</div>
-</div>
-
-<div class="half-modal-overlay hide"  id='half-modal3' role="half-modal">
-	<div class="modal-container animateHide">
-		<div class="modal-header ">
-			<span class="header-close">
-				<a > <i class="icon-cross "></i>
-				</a>
-			</span>
-			<span class="header-text">
-				<div class="title"></div>
-				<div  class="sub-title"></div>
-			</span>
-			<span class="header-icon">
-				<a > <i class="icon-forget "></i>
-				</a>
-			</span>
-		</div>
-		<div class="modal-body">
-			<div class="modal-text">
-				
-			</div>
-		</div>
-		<div class="modal-footer">
-			<button class="btn btn-basic btn-full"></button>
-		</div>
-	</div>
-</div>
-
 
 <script type="text/javascript">
 	$(function(){
-		$('#J-btn-switch').click(function(){
-			vera.showHalfModal({target:'#half-modal1', isShow:true})
-		})
-		$('#J-btn-switch1').click(function(){
-			vera.showHalfModal({target:'#half-modal2', isShow:true})
-		})
-		$('#J-btn-switch2').click(function(){
-			vera.showHalfModal({target:'#half-modal3', isShow:true})
-		})
-
 		var data1 =  {
-			target: '#half-modal1', // '.myBtnId'
-			isShow: true,
 			title:'<div>标题1 <span style="color:red">324324234</span></div>',
 			subTitle:'标题1',
-			content:'内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+			content:'<strong>内容内容内容内</strong>容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
 	        buttonText: "取消",
 		    buttonEventMethod: function(){
-		    	vera.showHalfModal({target:'#half-modal1', isShow:false})
+		    	vera.hideHalfModal()
 		    },
 		    closeEventMethod:function(){
-		    	vera.showHalfModal({target:'#half-modal1', isShow:false})
+		    	vera.hideHalfModal()
 		    },
 		    forgetEventMethod:function(){
-		    	vera.showHalfModal({target:'#half-modal1', isShow:false})
+		    	vera.hideHalfModal()
 		    },
 		}
 		var data2 = {
-			target: '#half-modal2', // '.myBtnId'
-			isShow: false,
 			title:'标题2',
 			content:'内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
 	        buttonText: "取消",
 		    buttonEventMethod: function(){
-		    	vera.showHalfModal({target:'#half-modal2', isShow:false})
+		    	vera.hideHalfModal()
 		    },
 		    closeEventMethod:function(){
-		    	vera.showHalfModal({target:'#half-modal2', isShow:false})
+		    	vera.hideHalfModal()
 		    }
 		}
 		var data3 = {
-			target: '#half-modal3', // '.myBtnId'
-			isShow: false,
 			title:'标题3',
 			subTitle:'标题3',
 			content:'内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
 	        buttonText: "取消",
 		    closeEventMethod:function(){
-		    	vera.showHalfModal({target:'#half-modal3', isShow:false})
+		    	vera.hideHalfModal()
 		    },
 		    forgetEventMethod:function(){
-		    	vera.showHalfModal({target:'#half-modal3', isShow:false})
+		    	vera.hideHalfModal()
 		    },
 		}
-		vera.initHalfModal(data1)
-		vera.initHalfModal(data2)
-		vera.initHalfModal(data3)
+
+		$('#J-btn-switch').click(function(){
+			vera.showHalfModal(data1)
+		})
+		$('#J-btn-switch1').click(function(){
+			vera.showHalfModal(data2)
+		})
+		$('#J-btn-switch2').click(function(){
+			vera.showHalfModal(data3)
+		})
 	})
 </script>

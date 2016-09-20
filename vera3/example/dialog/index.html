@@ -1,0 +1,87 @@
+<div class="container">
+	<p class="demo-p">有标题和确定取消按钮， 内容是HTML </p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic" id="J-btn-switch">click</button>
+		</div>
+	</div>
+
+
+	<p class="demo-p">有标题，确定/取消按钮 </p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic" id="J-btn-switch1">click</button>
+		</div>
+	</div>
+
+
+	<p class="demo-p">无标题，有确定取消按钮 </p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic" id="J-btn-switch2">click</button>
+		</div>
+	</div>
+
+	<p class="demo-p">无确定取消按钮 </p>
+	<div class="row margin-v-10">
+		<div class="col demo-col">
+			<button class="btn btn-basic" id="J-btn-switch3">click</button>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$(function(){
+		var data1 = {
+			isHTML:true,
+			title:'标题1',
+			content:'<strong>内容</strong>内容内容内容内容内容内容',
+	        buttonLeftText: "取消",
+	        buttonLeftEventMethod: function(){
+	        	vera.hideDialog()
+	        	console.log('cancel')
+	        },
+	        buttonRightText: "去认证",
+	        buttonRightEventMethod: function(){
+	        	vera.hideDialog()
+	        	console.log('ok')
+	        },
+		}
+		var data2 = {
+			title:'标题2',
+			content:'内容内容内容内容内容内容内容2',
+	        buttonCenterText: "去认证",
+	        buttonCenterEventMethod: function(){
+	        	vera.hideDialog()
+	        	console.log('cancel')
+	        },
+		}
+		var data3 = {
+			content:'内容内容内容内容内容内容内内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容2',
+	        buttonLeftText: "取消",
+	        buttonCenterText: "去认证",
+	        buttonCenterEventMethod: function(){
+	        	vera.hideDialog()
+	        	console.log('cancel')
+	        },
+		}
+		var data4 = {
+			title:'标题4',
+			content:'内容内容内容内容内容内容内内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容2',
+		}
+
+		$('#J-btn-switch').click(function(){
+			vera.showDialog(data1)
+		})
+		$('#J-btn-switch1').click(function(){
+			vera.showDialog(data2)
+		})
+		$('#J-btn-switch2').click(function(){
+			vera.showDialog(data3)
+		})
+		$('#J-btn-switch3').click(function(){
+			vera.showDialog(data4)
+		})
+	})
+</script>
